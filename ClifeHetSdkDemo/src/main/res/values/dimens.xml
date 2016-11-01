@@ -1,0 +1,92 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--scene custom  -->
+    <dimen name="comm_diliver_height">1px</dimen>
+    <dimen name="comm_edittext_height">55dp</dimen>
+    <dimen name="comm_padding">15dp</dimen>
+    <dimen name="dimen1px">1px</dimen>
+    <dimen name="dimen0.5">0.5dp</dimen>
+    <dimen name="dimen4">4dp</dimen>
+    <dimen name="dimen5">5dp</dimen>
+    <dimen name="dimen6">6dp</dimen>
+    <dimen name="dimen7">7dp</dimen>
+    <dimen name="dimen8">8dp</dimen>
+    <dimen name="dimen9">9dp</dimen>
+    <dimen name="dimen10">10dp</dimen>
+    <dimen name="dimen11">11dp</dimen>
+    <dimen name="dimen15">15dp</dimen>
+    <dimen name="dimen16">16dp</dimen>
+    <dimen name="dimen18">18dp</dimen>
+    <dimen name="dimen20">20dp</dimen>
+    <dimen name="dimen21">21dp</dimen>
+    <dimen name="dimen25">25dp</dimen>
+    <dimen name="dimen27">27dp</dimen>
+    <dimen name="dimen30">30dp</dimen>
+    <dimen name="dimen31">31dp</dimen>
+    <dimen name="dimen32">32dp</dimen>
+    <dimen name="dimen35">35dp</dimen>
+    <dimen name="dimen40">40dp</dimen>
+    <dimen name="dimen43">43dp</dimen>
+    <dimen name="dimen44">44dp</dimen>
+    <dimen name="dimen46">46dp</dimen>
+    <dimen name="dimen48">48dp</dimen>
+    <dimen name="dimen50">50dp</dimen>
+    <dimen name="dimen55">55dp</dimen>
+    <dimen name="dimen60">60dp</dimen>
+    <dimen name="dimen61">61dp</dimen>
+    <dimen name="dimen70">70dp</dimen>
+    <dimen name="dimen74">74dp</dimen>
+    <dimen name="dimen80">80dp</dimen>
+    <dimen name="dimen83">83dp</dimen>
+    <dimen name="dimen90">90dp</dimen>
+    <dimen name="dimen93">93dp</dimen>
+    <dimen name="dimen130">130dp</dimen>
+    <dimen name="dimen150">150dp</dimen>
+    <dimen name="dimen160">160dp</dimen>
+    <dimen name="dimen250">250dp</dimen>
+    <dimen name="dimen268">268dp</dimen>
+    <dimen name="dimen96">96dp</dimen>
+
+    <!-- textSize -->
+    <dimen name="textSize8">8sp</dimen>
+    <dimen name="textSize9">9sp</dimen>
+    <dimen name="textSize11">11sp</dimen>
+    <dimen name="textSize13">13sp</dimen>
+    <dimen name="textSize23">23sp</dimen>
+    <dimen name="textSize24">24sp</dimen>
+    <dimen name="textSize32">32sp</dimen>
+    <dimen name="textSize112">112sp</dimen>
+    <dimen name="textSize25">25sp</dimen>
+    <dimen name="textSize26">26sp</dimen>
+    <dimen name="textSize28">28sp</dimen>
+    <dimen name="textSize30">30sp</dimen>
+    <dimen name="textSize50">50sp</dimen>
+    <dimen name="textSize60">60sp</dimen>
+    <dimen name="textSize80">80sp</dimen>
+    <!--layout_toast-->
+    <dimen name="textSize10">10sp</dimen>
+    <dimen name="textSize12">12sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize15">15sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
+    <dimen name="textSize17">17sp</dimen>
+    <dimen name="textSize18">18sp</dimen>
+    <dimen name="textSize20">20sp</dimen>
+    <dimen name="textSize22">22sp</dimen>
+
+    <dimen name="common_btn_height">48dp</dimen>
+    <dimen name="common_diliverHeight">1px</dimen>
+
+
+    <dimen name="common_textsize_default">12sp</dimen>
+    <dimen name="common_textsize_high">17sp</dimen>
+    <dimen name="common_textsize_large">22sp</dimen>
+    <dimen name="common_textsize_xhigh">18sp</dimen>
+    <dimen name="common_textsize_xmiddle">15sp</dimen>
+    <dimen name="common_textsize_xxhigh">20sp</dimen>
+    <dimen name="common_textsize_xxmiddle">16sp</dimen>
+    <dimen name="common_topbar_height">50dp</dimen>
+    <dimen name="common_textsize_small">10sp</dimen>
+</resources>

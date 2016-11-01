@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_add_or_make_scene"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="用户场景主信息新增/修改"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_get_scene_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="获取用户场景主信息"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_get_condition_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="条件选项列表"
+            android:textSize="16sp" />
+
+
+        <Button
+            android:id="@+id/btn_timer_condition_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="定时条件新增/修改"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_get_in_device"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="获取用户输入设备（有控制功能）列表"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_user_scene_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="用户自定义场景详情"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_user_sub_scene_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="用户子场景删除"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_user_set_condition_relationl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="用户条件关系设置"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+
+
+
+
+</ScrollView>

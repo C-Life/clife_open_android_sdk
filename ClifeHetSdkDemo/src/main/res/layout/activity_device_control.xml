@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="下发数据"
+                    android:background="#778899"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textColor="#ffffff"/>
+
+                <Button
+                    android:id="@+id/btn_send_config_data"
+                    android:background="@drawable/common_botton_bg"
+                    style="@style/style_common_button"
+                    android:text="下发控制数据"
+                 />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="更新数据"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:background="#778899"
+                    android:textColor="#ffffff"/>
+
+                  <EditText
+                      android:id="@+id/edt_update_config"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="textMultiLine"
+                      android:hint="控制数据"/>
+
+                <EditText
+                android:id="@+id/edt_update_run"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="运行数据"/>
+
+                <EditText
+                    android:id="@+id/edt_update_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="异常数据"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

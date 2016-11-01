@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/data_histroy_run"
+            />
+
+        <Button
+            android:id="@+id/data_histroy_run"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_data_histroy_run"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/data_histroy_config" />
+
+        <Button
+            android:id="@+id/data_histroy_config"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_data_histroy_config"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/data_histroy_error" />
+
+        <Button
+            android:id="@+id/data_histroy_error"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_data_histroy_error"
+            android:textSize="16sp" />
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

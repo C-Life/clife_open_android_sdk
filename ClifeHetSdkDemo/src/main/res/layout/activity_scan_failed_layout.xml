@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lay1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp"
+                    android:src="@mipmap/pic_bind_failed" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="扫描设备失败！"
+                    android:textColor="#232323"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/error_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="扫描设备失败！"
+                    android:textColor="#232323"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lay1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:id="@+id/lay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="10dp"
+                        android:text="请确认：\n1.手机Wi-Fi功能已开启，手机已经接入Wi-Fi网络，请确保手机通讯正常"
+                        android:textColor="#232323" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="10dp"
+                        android:text="2.正确的输入WIFI密码"
+                        android:textColor="#232323" />
+
+
+                    <Button
+                        android:id="@+id/btn_re_bind"
+                        android:text="重新扫描"
+                        android:background="@drawable/common_botton_bg"
+                        style="@style/style_common_button"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

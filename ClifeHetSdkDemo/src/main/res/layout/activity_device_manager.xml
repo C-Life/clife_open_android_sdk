@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/device_control_intro"
+
+            />
+
+        <Button
+            android:id="@+id/btn_device_control"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_device_control"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/get_protocol_intro"
+
+            />
+
+        <Button
+            android:id="@+id/btn_get_protocol"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_get_protocol"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/device_rom_upload_intro" />
+
+        <Button
+            android:id="@+id/btn_device_rom_upload"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_device_rom_upload"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/device_unbind_intro" />
+
+        <Button
+            android:id="@+id/btn_device_unbind"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_device_unbind"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/device_change_message" />
+
+        <Button
+            android:id="@+id/btn_device_change_message"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_device_change_message"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/get_data_histroyy" />
+
+        <Button
+            android:id="@+id/btn_get_histroy"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_get_data_histroy"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            style="@style/Style.Text.Tag.Tip"
+            android:text="@string/device_share_intro" />
+
+        <Button
+            android:id="@+id/btn_device_share"
+            style="@android:style/Widget.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="@string/btn_device_share"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+</ScrollView>

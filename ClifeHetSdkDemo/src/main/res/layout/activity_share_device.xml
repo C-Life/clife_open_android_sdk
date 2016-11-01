@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:text="将设备分享给已授权登录用户"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/et_input_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/et_invite_tip"
+            android:inputType="text"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_device_auth_invite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="设备授权邀请"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="同意好友分享的设备授权"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/btn_device_auth_agree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="设备授权同意"
+            android:textSize="16sp" />
+
+        <TextView
+            android:text="删除设备分享授权"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            />
+
+
+        <EditText
+            android:id="@+id/et_del_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/et_share_del_tip"
+            android:inputType="text"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_device_auth_del"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="设备授权删除"
+            android:textSize="16sp" />
+
+
+
+        <TextView
+            android:text="获取消息，从中获取设备分享的消息"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/btn_device_auth_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="设备授权分享消息"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:text="相关好友分享api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_margin="10dp"
+            />
+
+        <Button
+            android:id="@+id/btn_device_auth_getDeviceAuthUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="获取设备授权的用户"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_device_auth_getDeviceNotAuthUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="获取设备未分享的好友列表"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_device_auth_getAuthDevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="获取已分享出去的设备列表信"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

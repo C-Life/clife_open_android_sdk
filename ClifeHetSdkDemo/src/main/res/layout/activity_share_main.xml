@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/share_device_qr_intro"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/et_input_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/et_invite_tip"
+            android:inputType="text"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_ok_invite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="确认邀请"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/share_device_qr_intro"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/iv_qr"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btn_device_share_api"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:text="分享api"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

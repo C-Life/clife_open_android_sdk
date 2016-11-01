@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <scene.View.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen10"
+                android:text="@string/have_condition"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen0.5"
+                android:background="@color/line_bg"
+                android:visibility="visible" />
+
+            <scene.View.SimpleListView
+                android:id="@+id/list_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+            </scene.View.SimpleListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen0.5"
+                android:background="@color/line_bg"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen10"
+                android:text="@string/new_condition" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen0.5"
+                android:background="@color/line_bg"
+                android:visibility="visible" />
+
+            <scene.View.SimpleListView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+            </scene.View.SimpleListView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen0.5"
+                android:background="@color/line_bg"
+                android:visibility="visible" />
+
+        </LinearLayout>
+    </scene.View.MyScrollView>
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_sync_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="同步数据"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textColor="#ffffff"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="实时数据"
+                    android:background="#778899"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textColor="#ffffff"/>
+
+                <Button
+                    android:id="@+id/btn_real_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="获取实时数据"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/edt_real"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="实时数据"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="历史数据"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:background="#778899"
+                    android:textColor="#ffffff"/>
+
+                <Button
+                    android:id="@+id/btn_get_histroy_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="获取历史数据"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:textColor="#ffffff"/>
+
+                <EditText
+                    android:id="@+id/edt_histroy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:hint="历史数据"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

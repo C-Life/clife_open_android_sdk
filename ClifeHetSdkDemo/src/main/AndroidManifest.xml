@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.het.sdk.demo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
+    <application
+        android:name="com.het.sdk.demo.AppApplication"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:icon="@mipmap/clife_launcher"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.ThirdDeviceActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.device.DeviceControlActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.device.HumidifierDeviceControlActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.device.AromaDeviceControlActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.HttpRequestActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.device.MattressActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.SceneSystemListActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.SceneUserListActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.SceneTypeActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.SystemSceneDetailActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.SceneDiyActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.scene.UserSceneDetailActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.share.ShareDeviceApiActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.share.ShareMainActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.share.ScanMainActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.DeviceManagerActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.DateHistroyActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.upgrade.UpgradeActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.bind.DeviceSubTypeListActivity">
+
+    </activity>
+        <activity android:name=".ui.activity.bind.BleBindActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.bind.DeviceTypeListActivity">
+
+        </activity>
+
+        <activity android:name=".ui.activity.bind.SmartLinkConfigActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.bind.SmartLinkScanFailActivity">
+
+        </activity>
+        <activity android:name=".ui.activity.bind.WifiBindActivity">
+
+        </activity>
+
+        <activity
+            android:name="com.het.open.lib.ui.HetWebViewActivity"
+            android:exported="true"></activity>
+
+
+
+
+    </application>
+
+</manifest>

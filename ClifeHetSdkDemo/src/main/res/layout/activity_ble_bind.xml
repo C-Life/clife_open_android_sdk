@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/search_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rel_cancle"
+        android:background="@drawable/box_scan_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/shimmer_view_container">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:scaleType="centerInside"
+                android:src="@mipmap/bg_saomiao_bangding"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/bind_circle_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/round_icon" />
+
+            <TextView
+                android:id="@+id/point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0%"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/tv_tips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="扫描设备中"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            ...(your complex view here)...
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lvw_devices"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:scrollbars="none"
+        android:layout_above="@+id/rel_cancle"
+        android:visibility="gone">
+
+    </ListView>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/common_botton_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="15dp"
+            android:text="取消绑定"
+            android:textColor="#536fe9"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

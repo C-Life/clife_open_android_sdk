@@ -1,0 +1,9 @@
+/build
+
+
+/.idea/
+/.gradle/
+/gradle/
+/ClifeOpenAndroidSdk.iml
+/gradlew
+/gradlew.bat

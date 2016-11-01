@@ -1,0 +1,75 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Style.Text.White" parent="Style.TopBar.White"/>
+    <style name="Style.TopBar.White" parent="">
+        <item name="android:textColor">@color/common_white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Style.Text.Tag.Scene" parent="">
+        <item name="android:textSize">@dimen/common_textsize_xmiddle</item>
+        <item name="android:textColor">@color/color1</item>
+    </style>
+
+    <style name="Style.Text.Tag.Tip" parent="">
+        <item name="android:textSize">@dimen/common_textsize_xmiddle</item>
+        <item name="android:textColor">@color/color1</item>
+    </style>
+
+    <style name="Style.EditText" parent="">
+        <item name="android:textSize">@dimen/common_textsize_xmiddle</item>
+        <item name="android:textColor">@color/textColor_defalut</item>
+        <item name="android:textColorHint">@color/textcolor_hint</item>
+    </style>
+
+    <style name="style_common_button" >
+        <item name="android:layout_margin">30dp</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/common_textsize_xxmiddle</item>
+        <item name="android:textColor">@color/color14</item>
+        <item name="android:textColorHint">@color/textcolor_hint</item>
+    </style>
+
+    <style name="main_bottom_text_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/check_main_bottom_text_color</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <!-- loading -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="DialogFadeIn" parent="dialog">
+        <item name="android:windowAnimationStyle">@style/fade_animation</item>
+    </style>
+
+    <style name="fade_animation" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="@android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+
+</resources>
