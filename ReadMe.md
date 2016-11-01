@@ -73,30 +73,19 @@
 	 public void init(Context context, String appId,
 	                 String secret,ConfigModel configModel){
 	```
-###4.2授权登录
+###4.2 授权登录
 
-   使用auth登录的方式登录clife开放平台，只有登录用户才可以绑定，控制，管理设备
-
+   使用auth登录的方式登录clife开放平台，只有登录后，用户才可以绑定，控制，管理设备
+   
    4.2.1 授权登录界面如下图
+       授权登录，用户输入账号密码登录
+       若用户没有clife账号，需要先注册clife账号
+       若用户忘记密码，可以使用找回密码功能找回密码
 
    ![](http://i.imgur.com/bO48qSQ.jpg)
-
-   4.2.2 注册账号页面
-   
-   若用户没有clife账号，需要先注册clife账号，如下图注册页面
-
-   ![](http://i.imgur.com/gLDcaIV.jpg)
-   
-   4.2.3 找回密码页面
-   
-   若用户忘记密码，可找回密码 ，如下图
-   ![](http://i.imgur.com/gsv9NOY.jpg)
- 
-   
-   
-  
+     
                  
-###4.3设备绑定
+###4.3 设备绑定
    > 目前，支持蓝牙设备，wifi设备绑定
    
    绑定的流程为，获取设备大类，获取设备小类，输入当前wifi密码，开始绑定，获取绑定结果回调
@@ -169,7 +158,7 @@
    4.3.5 直接绑定
      
    开发者知道设备的类型（参考devicemodel字段说明），可以直接调用绑定方法，
- 无需先选择大类，小类
+   无需先选择大类，小类
       
 ##5设备管理
     
@@ -224,8 +213,7 @@
      * 2-控制数据 3-运行数据 4-故障数据
      */
    	  public  void getProtocol(final IHetCallback iHetCallback,int productId,int type){
-	   	  
-  ```
+	   	   ```
     
 ###5.5 获取设备历史数据
  
@@ -278,7 +266,8 @@
      */
     public void getErrorDataList(final IHetCallback iHetCallback, String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
  	```
- 	 
+ 	
+	
 ##6 WIFI设备控制
 
    用户需要根据在clife平台上注册的设备协议，定义model,后面的sdk版本会自动从后台拉取协议解析。
