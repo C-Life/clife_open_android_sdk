@@ -5,32 +5,26 @@
 ##1. 向C-Life注册你的应用程序
 请到 应用中心 页面创建移动应用，填写资料后，将获得AppID和AppSecret，可立即用于开发。但应用登记完成后还需要提交审核，只有审核通过的应用才能正式发布使用。
 
-##2. 下载C-Life终端SDK文件
-请前往[下载中心](http://open.clife.net/#/documentation/downloadCenter)下载最新SDK包。
+##2. 下载C-Life终端DEMO
+请前往[下载中心](https://github.com/C-Life/clife_open_android_sdk)下载最新SDK包。
 
 ##3. 搭建开发环境
 ###3.1在Android Studio中建立你的工程。
-###3.2在工程中新建一个libs目录，将开发工具包中的:
-   * HetOpenLib-release.aar
-   * bindlogicllib-release.aar
-   * UdpCore_v1.2-release.aar
-   * BlueToothSupport-release.aar    
-       
-   复制到该目录中（如下图所示，把aar包复制到libs目录下）。
-    ![](http://i.imgur.com/KfIJUyt.png)
-    
-    
-   在gradle中加入以下内容:
-   
-	```
-		repositories {
-		 flatDir {
-		   dirs 'libs' //this way we can find the .aar file in libs folder
-		}
-		compile(name:'HetOpenLib-release', ext:'aar')
-		compile(name:'bindlogicllib-release', ext:'aar')
-		compile(name:'UdpCore_v1.2-release', ext:'aar')
-		compile(name:'BlueToothSupport-debug', ext:'aar')
+###3.2在工程的build文件中
+
+
+    allprojects {
+        repositories {
+            jcenter()
+            //和而泰对外仓库
+            maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        }
+    }
+
+    dependencies {
+        //和而泰sdk库
+        compile 'com.github.szhittech:HetOpenSdk:1.0.1-SNAPSHOT'
+    }
 	```
    
   
@@ -72,7 +66,9 @@
 	 */
 	 public void init(Context context, String appId,
 	                 String secret,ConfigModel configModel){
+
 	```
+    
 ###4.2 授权登录
 
    使用auth登录的方式登录clife开放平台，只有登录后，用户才可以绑定，控制，管理设备

@@ -21,9 +21,13 @@ package com.het.sdk.demo.utils;
  */
 public class Constants {
 //开放平台绑定
-    public static final String APP_ID = "30048";
-    public static final String APP_SECRET = "9e0ab42cc3b54fca8c56affa6be059cf";
+//    public static final String APP_ID = "30048";
+//    public static final String APP_SECRET = "9e0ab42cc3b54fca8c56affa6be059cf";
 
+
+    //凌涛
+    public static final String APP_ID = "30168";
+    public static final String APP_SECRET = "abc2470f89c045b798851f575c6fb052";
     //填写在CLIFE平台申请的相关帐号信息
 //   public static final String APP_ID = "20001";
 //    public static final String APP_SECRET = "518088865188479f812b973be9648761";

@@ -9,9 +9,13 @@ android {
         applicationId "com.het.sdk.demo"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
-       // multiDexEnabled true
+        if (project.hasProperty('VERSION_CODE')) {
+            versionCode Integer.parseInt(VERSION_CODE)
+        }
+        if (project.hasProperty('VERSION_NAME')) {
+            versionName VERSION_NAME
+        }
+
     }
     buildTypes {
         release {
@@ -31,19 +35,13 @@ repositories {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    //引用包形式aar文件
-       compile(name:'HetOpenLib-release', ext:'aar')
-        compile(name:'bindlogicllib-release', ext:'aar')
-        compile(name:'UdpCore_v1.2-release', ext:'aar')
-        compile(name:'BlueToothSupport-release', ext:'aar')
-    //引用库形式
-    //compile project(path: ':HetOpenLib')
+    //和而泰sdk库
+    compile 'com.github.szhittech:HetOpenSdk:1.0.1-SNAPSHOT'
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
     compile 'com.facebook.fresco:fresco:0.8.1+'
     compile 'com.google.code.gson:gson:2.5'
-    compile 'com.github.xxl6097:appdaemon:1.0.5'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/core-3.2.1.jar')
    // compile 'com.android.support:multidex:1.0.0'
