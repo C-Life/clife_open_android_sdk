@@ -263,8 +263,9 @@
     public void getErrorDataList(final IHetCallback iHetCallback, String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
  	```
  	
+
 	
-##6 WIFI设备控制
+**##6 WIFI设备控制**
 
    用户需要根据在clife平台上注册的设备协议，定义model,后面的sdk版本会自动从后台拉取协议解析。
 目前demo 里定义了香薰机的model，请参考定义需要使用的model
@@ -328,30 +329,26 @@
    下发数据指，发送相关命令操作设备，发送调用HetDeviceSubmitApi方法
      
    [1] 关于updateflag
+      这个修改标记位是为了做统计和配置下发的时候设备执行相应的功能。下发数据必须传递updateflag标志
      
-   这个修改标记位是为了做统计和配置下发的时候设备执行相应的功能。下发数据必须传递updateflag标志
-  
-  ```
-    例如，空气净化器（广磊K180）配置信息协议：
-	
-    紫外线(1)、负离子(2)、臭氧(3)、儿童锁(4)、开关(5)、WiFi(6)、过滤网(7)、模式(8)、定时(9)、风量(10)
-    上面一共上10个功能，那么updateFlag就2个字节，没超过8个功能为1个字节，超过8个为2个字节，超过16个为3个字节，以此类推。
-	
-    打开负离子，2个字节，每一个bit的值为下：
-	
-    0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
-	```
-    
+     ```
+       例如，空气净化器（广磊K180）配置信息协议：
+   	
+       紫外线(1)、负离子(2)、臭氧(3)、儿童锁(4)、开关(5)、WiFi(6)、过滤网(7)、模式(8)、定时(9)、风量(10)
+       上面一共上10个功能，那么updateFlag就2个字节，没超过8个功能为1个字节，超过8个为2个字节，超过16个为3个字节，以此类推。
+   	
+       打开负离子，2个字节，每一个bit的值为下：
+   	
+       0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
    [2] 初始化
-     
-	```
-	/**
-	* 初始化
-	* @param deviceModel  设备model
-	* @param submitUpdateView  获取数据接口回调
-	*/
-	public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
-	```
+   
+   	/**
+   	* 初始化
+   	* @param deviceModel  设备model
+   	* @param submitUpdateView  获取数据接口回调
+   	*/
+   	public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
+  `
 	
    若用户未配置协议，需继承小循环model解析接口 IUdpModelParser，并在初始化的时候传递，用户需根据设备类型解析字节数据
      
@@ -395,7 +392,7 @@
 
   指用户直接调用相关api请求clife平台控制wifi设备，使用HetDeviceWifiControlApi
 
-  [1] 向设备下发控制数据
+[1] 向设备下发控制数据
    
     /**
      * 向设备下发控制数据
@@ -442,7 +439,7 @@
     
 
 	
-##7蓝牙设备接入
+##7 蓝牙设备接入
    
    >第三方蓝牙设备接入指用户已开发好设备的的控制等功能，将设备接入clife开放平台，上传数据到clife平台，从clife平台获取  数据，蓝牙接入调用HetThridBleApi，需授权登录成功后才能使用相关api
    
@@ -505,9 +502,9 @@
 	public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
 	```
 
-##8异常说明
+##8 异常说明
    
-###8.1全局返回码说明
+###8.1 网络请求全局返回码说明
   
    | 返回码 | 说明  |
    | --- | --- |
@@ -559,16 +556,21 @@
    |100022009|关联的设备不存在|
    |100022010|关联的设备未绑定|
    |100022011|设备已授权|
-    
-###8.2设备无法绑定
-    
-	   - 设备是否置为绑定模式
-	
-	   - 是否正确输入wifi密码
-	
-	   - 设备是否已在CLife开放平台注册
+   
+   
+
+###  8.2 设备无法绑定 
+
+	   - 设备是否置为绑定模式，是否在绑定的有效时间内
+	   
+	   - 是否正确输入wifi密码,请确认手机是否能正常连接网络
+	   
+	   - 是扫描不到设备还是绑定不了设备
+	  	
+	   - 设备是否已在CLife开放平台注册，并按照要求将大小类信息写入设备中
 	
 	   - APP端服务是否开启
+	   
 
  
 
