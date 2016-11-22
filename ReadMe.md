@@ -102,7 +102,7 @@
 	 ```
    
 
--     WIFI设备绑定
+-  WIFI设备绑定
    
    wifi绑定设备调用HetWifiBindApi，接口回调iWifiBind
      
@@ -488,15 +488,15 @@
    以json形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据
    
 	
-	/**
-	* 上传数据
-	*
-	* @param iHetCallback
-	* @param deviceModel  deviceModel
-	* @param json        数据
-	* @param type         设备类型 1历史数据 2实时数据
-	*/
-	public void updateData(final IHetCallback iHetCallback, String json,DeviceModel deviceModel, int type) {
+        /**
+        * 上传数据
+        *
+        * @param iHetCallback
+        * @param deviceModel  deviceModel
+        * @param json        数据
+        * @param type         设备类型 1历史数据 2实时数据
+        */
+        public void updateData(final IHetCallback iHetCallback, String json,DeviceModel deviceModel, int type) {
 	
   
 ###7.3获取历史数据
@@ -504,16 +504,16 @@
 上传数据后，可以获取历史数据，数据以byte形式返回，详细的字段说明请参考 ThirdBLeDataModel
  
 	
-	/**
-	* 获取历史数据
-	*
-	* @param iHetCallback
-	* @param deviceModel  deviceModel
-	* @param order        排序方式（0-降序 1-升序 默认0-降序）
-	* @param pageRows     每页显示的行数(默认20)
-	* @param pageIndex    当前页（默认1）
-	*/
-	public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
+        /**
+        * 获取历史数据
+        *
+        * @param iHetCallback
+        * @param deviceModel  deviceModel
+        * @param order        排序方式（0-降序 1-升序 默认0-降序）
+        * @param pageRows     每页显示的行数(默认20)
+        * @param pageIndex    当前页（默认1）
+        */
+        public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
 	
 	
 
