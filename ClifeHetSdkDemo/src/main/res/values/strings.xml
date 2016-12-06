@@ -153,7 +153,6 @@
 
     <string name="scene_edit_information">编辑基本信息</string>
     <string name="scene_edit_set">编辑场景设置</string>
-
     <string name="scene_choosecondition">请先选择条件</string>
     <string name="scene_condition_more">条件数已超出数量，请先取消勾选</string>
     <string name="title_activity_test_scene">TestSceneActivity</string>
@@ -164,6 +163,10 @@
     <string name="bind">绑定</string>
     <string name="device">设备</string>
     <string name="common">通用</string>
+    <string name="intro_http_post">和而泰通用POST请求，请参考相关api使用文档</string>
+    <string name="intro_http_get">和而泰通用GET请求，请参考相关api使用文档</string>
+    <string name="btn_http_get">"和而泰通用GET请求"</string>
+    <string name="btn_http_post">"和而泰通用POST请求"</string>
     <string name="auth_intro">授权登录采用auth授权的形式，用户需有clife开放平台帐号，若没有，需注册</string>
     <string name="auth_auto_intro">自动登录，传入用户手机号，一键登录clife开放平台</string>
     <string name="get_user_mess">登录后，获取用户信息</string>

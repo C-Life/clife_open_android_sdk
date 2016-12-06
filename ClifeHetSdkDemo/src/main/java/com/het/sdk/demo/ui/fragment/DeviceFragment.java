@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.google.gson.reflect.TypeToken;
 import com.het.open.lib.api.HetDeviceListApi;
 import com.het.open.lib.api.HetSdk;
-import com.het.open.lib.callback.IDeviceList;
+import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.model.DeviceModel;
 import com.het.open.lib.utils.GsonUtil;
 import com.het.sdk.demo.R;
@@ -25,6 +25,8 @@ import com.het.sdk.demo.utils.HandlerUtil;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.type;
 
 /**
  * 授权fragment
@@ -78,21 +80,24 @@ public class DeviceFragment extends BaseFragment {
             showTipText("授权登录后查看绑定设备信息");
             return;
         }
-        HetDeviceListApi.getInstance().getBindList(new IDeviceList() {
+        HetDeviceListApi.getInstance().getBindList(new IHetCallback() {
 
 
             @Override
-            public void onSuccess(String s) {
-                Type type = new TypeToken<List<DeviceModel>>() {
-                }.getType();
-                List<DeviceModel> models = GsonUtil.getGsonInstance().fromJson(s, type);
-                if (models != null && models.size() > 0) {
-                    deviceModels.clear();
-                    deviceModels.addAll(models);
-                    sendMsg(UPDATE_ADAPTER);
-                } else {
-                    showTipText("未绑定任何设备");
+            public void onSuccess(int code,String s) {
+                if (code==0){
+                    Type type = new TypeToken<List<DeviceModel>>() {
+                    }.getType();
+                    List<DeviceModel> models = GsonUtil.getGsonInstance().fromJson(s, type);
+                    if (models != null && models.size() > 0) {
+                        deviceModels.clear();
+                        deviceModels.addAll(models);
+                        sendMsg(UPDATE_ADAPTER);
+                    } else {
+                        showTipText("未绑定任何设备");
+                    }
                 }
+
             }
 
             @Override
@@ -151,19 +156,7 @@ public class DeviceFragment extends BaseFragment {
         sendMsg(INIT_DATA);
     }
 
-//    @Override
-//    public void onHiddenChanged(boolean hidden) {
-//        // TODO Auto-generated method stub
-//        super.onHiddenChanged(hidden);
-//        if (hidden) {
-//
-//        } else {
-//            if (firstFlag){
-//                sendMsg(INIT_DATA);
-//            }
-//
-//        }
-//    }
+
 
     private void sendMsg(int value) {
         if (mStableHandler != null) {

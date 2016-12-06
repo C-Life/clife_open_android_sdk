@@ -21,13 +21,13 @@ package com.het.sdk.demo.utils;
  */
 public class Constants {
 //开放平台绑定
-//    public static final String APP_ID = "30048";
-//    public static final String APP_SECRET = "9e0ab42cc3b54fca8c56affa6be059cf";
+    public static final String APP_ID = "30048";
+    public static final String APP_SECRET = "9e0ab42cc3b54fca8c56affa6be059cf";
 
 
     //凌涛
-    public static final String APP_ID = "30168";
-    public static final String APP_SECRET = "abc2470f89c045b798851f575c6fb052";
+   // public static final String APP_ID = "30168";
+   // public static final String APP_SECRET = "abc2470f89c045b798851f575c6fb052";
     //填写在CLIFE平台申请的相关帐号信息
 //   public static final String APP_ID = "20001";
 //    public static final String APP_SECRET = "518088865188479f812b973be9648761";
@@ -51,10 +51,15 @@ public class Constants {
 //    public static final String APP_ID = "30101";
 //    public static final String APP_SECRET = "23c25bf0290140cc886f581ab929e286";
 
-    //净化器
+    //智能乳宝
+  //  public static final String APP_ID = "30247";
+   // public static final String APP_SECRET = "b9e3b3c275cd4ad3947e9359a822a74b";
+
+
+
 //    public static final String APP_ID = "30179";
-//    public static final String APP_SECRET = "d14e50a72a444dccabd12d159987ad35";
-    //
+//   public static final String APP_SECRET = "d14e50a72a444dccabd12d159987ad35";
+
     public static final String WIFI_IFFO_MODEL="WIFI_IFFO_MODEL";
     public static final String BIND_ERROR_MSG="BIND_ERROR_MSG";   //绑定失败信息
     public static final String DEVICE_MODEL="DEVICE_MODEL"; //设备model

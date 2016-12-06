@@ -6,9 +6,10 @@ import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.google.gson.reflect.TypeToken;
 import com.het.open.lib.api.HetDeviceListApi;
-import com.het.open.lib.callback.IDeviceList;
+import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.model.DeviceTypeModel;
 import com.het.open.lib.utils.GsonUtil;
 import com.het.sdk.demo.R;
@@ -16,22 +17,24 @@ import com.het.sdk.demo.adapter.AdapterDeviceTypeList;
 import com.het.sdk.demo.ui.activity.BaseActivity;
 import com.het.sdk.demo.utils.Constants;
 import com.het.sdk.demo.utils.HandlerUtil;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.type;
+
 /**
- *设备大类列表
+ * 设备大类列表
  */
 public class DeviceTypeListActivity extends BaseActivity {
 
 
-    private List<DeviceTypeModel> deviceModels=new ArrayList<>();
+    private List<DeviceTypeModel> deviceModels = new ArrayList<>();
     private final int INIT_DATA = 0x01;
     private final int UPDATE_ADAPTER = 0x02;
     private AdapterDeviceTypeList mAdapter;
     private ListView mListView;
-
 
 
     private HandlerUtil.MessageListener mMessageListener = new HandlerUtil.MessageListener() {
@@ -68,43 +71,45 @@ public class DeviceTypeListActivity extends BaseActivity {
     }
 
     private void initData() {
-        HetDeviceListApi.getInstance().getTypeList(new IDeviceList() {
+        HetDeviceListApi.getInstance().getTypeList(new IHetCallback() {
 
             @Override
-            public void onSuccess(String s) {
-                Type type = new TypeToken<List<DeviceTypeModel>>() {
-                }.getType();
-                List<DeviceTypeModel> models = GsonUtil.getGsonInstance().fromJson(s, type);
-                if (models != null && models.size() > 0) {
-                    deviceModels.clear();
-                    deviceModels.addAll(models);
-                    sendMsg(UPDATE_ADAPTER);
-                } else {
-                    showToast("没有设备");
+            public void onSuccess(int code, String s) {
+                if (code == 0) {
+                    Type type = new TypeToken<List<DeviceTypeModel>>() {
+                    }.getType();
+                    List<DeviceTypeModel> models = GsonUtil.getGsonInstance().fromJson(s, type);
+                    if (models != null && models.size() > 0) {
+                        deviceModels.clear();
+                        deviceModels.addAll(models);
+                        sendMsg(UPDATE_ADAPTER);
+                    } else {
+                        showToast("没有设备");
+                    }
                 }
+
             }
 
             @Override
             public void onFailed(int code, String msg) {
-
+                   showToast(msg);
             }
         });
     }
 
 
-
     private void initView() {
         getSupportActionBar().setTitle("设备大类列表");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mListView=(ListView)findViewById(R.id.device_list);
-        mAdapter=new AdapterDeviceTypeList(deviceModels,this);
+        mListView = (ListView) findViewById(R.id.device_list);
+        mAdapter = new AdapterDeviceTypeList(deviceModels, this);
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DeviceTypeModel deviceModel=deviceModels.get(position);
-                Intent intent=new Intent(DeviceTypeListActivity.this,DeviceSubTypeListActivity.class);
-                intent.putExtra(Constants.DEVICE_TYPE_MODEL,deviceModel);
+                DeviceTypeModel deviceModel = deviceModels.get(position);
+                Intent intent = new Intent(DeviceTypeListActivity.this, DeviceSubTypeListActivity.class);
+                intent.putExtra(Constants.DEVICE_TYPE_MODEL, deviceModel);
                 startActivity(intent);
 
             }
@@ -112,7 +117,6 @@ public class DeviceTypeListActivity extends BaseActivity {
         sendMsg(INIT_DATA);
 
     }
-
 
 
     private void sendMsg(int value) {

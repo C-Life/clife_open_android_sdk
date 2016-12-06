@@ -55,8 +55,8 @@ public class ThirdDeviceActivity extends BaseActivity implements View.OnClickLis
 //        deviceModel.setMacAddress("ACCF2378C431");
 //超声波身高测量仪
         deviceModel = new DeviceModel();
-        deviceModel.setDeviceName("超声波身高测量仪");
-        deviceModel.setProductId(1380);
+        deviceModel.setDeviceName("智能乳宝");
+        deviceModel.setProductId(1251);
         deviceModel.setModuleType(2);
         deviceModel.setMacAddress("FFFFFFFFFFFF");
 

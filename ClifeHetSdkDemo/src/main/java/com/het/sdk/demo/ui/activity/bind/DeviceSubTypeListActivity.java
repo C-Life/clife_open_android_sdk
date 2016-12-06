@@ -9,7 +9,8 @@ import android.widget.ListView;
 
 import com.google.gson.reflect.TypeToken;
 import com.het.open.lib.api.HetDeviceListApi;
-import com.het.open.lib.callback.IDeviceList;
+
+import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.model.DeviceModel;
 import com.het.open.lib.model.DeviceSubModel;
 import com.het.open.lib.model.DeviceTypeModel;
@@ -72,26 +73,30 @@ public class DeviceSubTypeListActivity extends BaseActivity {
     private void initData() {
         deviceTypeModel = (DeviceTypeModel) getIntent().getSerializableExtra(Constants.DEVICE_TYPE_MODEL);
         String deviceType = deviceTypeModel.getDeviceTypeId();
-        HetDeviceListApi.getInstance().getSubTypeListProduct(new IDeviceList() {
+        HetDeviceListApi.getInstance().getSubTypeListProduct(new IHetCallback() {
             @Override
-            public void onSuccess(String s) {
-                Type type = new TypeToken<List<DeviceSubModel>>() {
-                }.getType();
-                List<DeviceSubModel> models = GsonUtil.getGsonInstance().fromJson(s, type);
-                if (models != null && models.size() > 0) {
-                    deviceModels.clear();
-                    deviceModels.addAll(models);
-                    sendMsg(UPDATE_ADAPTER);
-                } else {
-                    showToast("没有设备");
+            public void onSuccess(int code, String msg) {
+                if (code==0){
+                    Type type = new TypeToken<List<DeviceSubModel>>() {
+                    }.getType();
+                    List<DeviceSubModel> models = GsonUtil.getGsonInstance().fromJson(msg, type);
+                    if (models != null && models.size() > 0) {
+                        deviceModels.clear();
+                        deviceModels.addAll(models);
+                        sendMsg(UPDATE_ADAPTER);
+                    } else {
+                        showToast("没有设备");
+                    }
                 }
             }
 
             @Override
-            public void onFailed(int i, String s) {
+            public void onFailed(int code, String msg) {
 
             }
-        }, deviceType);
+        },deviceType);
+
+
     }
 
 
