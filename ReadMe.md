@@ -23,7 +23,7 @@
 
     dependencies {
         //和而泰sdk库
-        compile 'com.github.szhittech:HetOpenSdk:1.0.1-SNAPSHOT'
+         compile 'com.github.szhittech:bindlogiclib:1.2.0-SNAPSHOT'
     }
 	
   
@@ -515,11 +515,44 @@
         */
         public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
 	
-	
+##8 和而泰通用HTTP请求
+和而泰通用HTTP请求指，开发者通用调用sdk的通用http的api请求访问clife开放平台的相关功能，如菜谱，场景联动等功能
+参考HetHttpApi，使用用户需参考相关api请求文档，
+    通用GET请求不带参数
+    
+        /**
+         * get请求
+         * @param url    请求地址
+         * @param callback  请求结果回调
+    
+         */
+        public void hetGet(String url,  IHetCallback callback){
+        
+通用GET请求带参数
 
-##8 异常说明
+         /**
+          * get请求
+          * @param url    请求地址
+          * @param params  请求参数
+          * @param callback  请求结果回调
+     
+          */
+         public void hetGet(String url, TreeMap params,  IHetCallback callback){
+         
+ 通用POST请求
+ 
+      /**
+         * post请求
+         * @param url    请求地址
+         * @param params  请求参数
+         * @param callback  请求结果回调
+    
+         */
+        public void hetPost(String url, TreeMap params, IHetCallback callback){
+
+##9 异常说明
    
-###8.1 网络请求全局返回码说明
+###9.1 网络请求全局返回码说明
   
    | 返回码 | 说明  |
    | --- | --- |
@@ -574,7 +607,7 @@
    
    
 
-###  8.2 设备无法绑定 
+###  9.2 设备无法绑定 
 	  
 1. 设备是否置为绑定模式，是否在绑定的有效时间内
 2. 是否正确输入wifi密码,请确认手机是否能正常连接网络
