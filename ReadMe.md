@@ -23,7 +23,7 @@
 
     dependencies {
         //和而泰sdk库
-         compile 'com.github.szhittech:bindlogiclib:1.2.0-SNAPSHOT'
+         compile 'com.github.szhittech:HetOpenSdk:1.0.3-SNAPSHOT'
     }
 	
   
@@ -53,19 +53,85 @@
 
 ###4.1初始化SDK
 
- 使用C-Life SDK，需要先调用sdk初始化方法，建议在Application中调用，需传入申请的AppID和AppSecret
- 用户可以根据功能需要，在初始化的时候传入configModel，configModel可以设置是否开启wifi功能，蓝牙功能，设置请求地址环境，网络超时时间，是否打印log信息等，请参考model说明
+ 使用CLife SDK，需要先调用sdk初始化方法，建议在Application中调用
 
+**接口调用请求说明**
 
-	/**
-	 * 初始化SDK
-	 * @param context 上下文常量
-	 * @param appId    用户appid
-	 * @param secret    用户密匙
-	 * @param configModel    初始配置
-	 */
-	 public void init(Context context, String appId,
-	                 String secret,ConfigModel configModel){
+	HetSdk.getInstance().init（）
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+		<tr>
+			<td>appId</td>
+			<td>是</td>
+			<td>string</td>
+			<td>应用标识</td>
+		</tr>
+		<tr>
+			<td>context</td>
+			<td>是</td>
+			<td>Context</td>
+			<td>上下文常量</td>
+		</tr>
+		<tr>
+			<td>secret </td>
+			<td>是</td>
+			<td>string</td>
+			<td>用户密匙</td>
+		</tr>
+		<tr>
+			<td>configModel</td>
+			<td>是</td>
+			<td>ConfigModel</td>
+			<td>初始配置</td>
+		</tr>
+	</tbody>
+</table>
+
+**configModel说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">字段名称</th>
+			<th width="11%">字段类型</th>
+			<th width="74%">字段说明</th>
+		</tr>
+		<tr>
+			<td>isOpenWifiContorl</td>
+			<td>boolean</td>
+			<td>是否开启wifi功能</td>
+		</tr>
+	    <tr>
+			<td>isOpenBleControl</td>
+			<td>boolean</td>
+			<td>是否开启蓝牙功能</td>
+		</tr>
+	    <tr>
+			<td>isLog</td>
+			<td>boolean</td>
+			<td>是否开启调试信息</td>
+		</tr>
+		<tr>
+			<td>isOpenPost</td>
+			<td>boolean</td>
+			<td>是否为开放平台端口（现在都设为false）</td>
+		</tr>
+		<tr>
+			<td>host</td>
+			<td>int</td>
+			<td>网络环境设置: 0x01：正式 0x02：预发布 0x03:内网 0x04：测试环境</td>
+		</tr>
+
+	</tbody>
+</table>
+
 
 	
     
