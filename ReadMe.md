@@ -147,150 +147,725 @@
    ![](http://i.imgur.com/bO48qSQ.jpg)
      
                  
-###4.3 设备绑定
+###4.3 获取用户信息
+
+
+  获取授权登录用户的用户信息
+
+
+
+**接口调用请求说明**
+
+	HetUserApi.getInstance().getUserMess()
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回用户的json信息</td>
+		</tr>
+	</tbody>
+</table>
+**返回json信息说明**
+
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">字段名称</th>
+			<th width="11%">字段类型</th>
+			<th width="74%">字段说明</th>
+		</tr>
+		<tr>
+			<td>userName</td>
+			<td>string</td>
+			<td>用户名称</td>
+		</tr>
+		<tr>
+			<td>phone</td>
+			<td>string</td>
+			<td>用户手机</td>
+		</tr>
+		<tr>
+			<td>email</td>
+			<td>string</td>
+			<td>用户邮箱</td>
+		</tr>
+		<tr>
+			<td>sex</td>
+			<td>number</td>
+			<td>性别（1-男，2-女）</td>
+		</tr>
+		<tr>
+			<td>birthday</td>
+			<td>string</td>
+			<td>生日（yyyy-MM-dd）</td>
+		</tr>
+		<tr>
+			<td>weight</td>
+			<td>number</td>
+			<td>体重（克）</td>
+		</tr>
+		<tr>
+			<td>height</td>
+			<td>number</td>
+			<td>身高（厘米）</td>
+		</tr>
+		<tr>
+			<td>avatar</td>
+			<td>string</td>
+			<td>头像URL</td>
+		</tr>
+		<tr>
+			<td>city</td>
+			<td>string</td>
+			<td>城市名</td>
+		</tr>
+	</tbody>
+</table>
+
+###4.4 退出授权登录
+
+	HetUserApi.getInstance().logout();
+
+##5 设备绑定管理
 
    > 目前，支持蓝牙设备，wifi设备绑定
-   
-   绑定的流程为，获取设备大类，获取设备小类，输入当前wifi密码，开始绑定，获取绑定结果回调
-   
-   
 
--    获取绑定设备大类列表api
-	    
-           HetDeviceListApi.getInstance().getTypeList
-           (new ICallback<String>() {
-	
+###5.1 设备model说明
 
-- 获取绑定设备小类列表api
-   
-	 ```
-	 HetDeviceListApi.getInstance().getSubTypeListProduct {  
-	 ```
-   
+  本文档中选有的devicemodel，参数说明
 
--  WIFI设备绑定
-   
-   wifi绑定设备调用HetWifiBindApi，接口回调iWifiBind
-     
-	
-	/**
-	 * 开始绑定设备
-	 *
-	 * @param wifiPassword wifi密码
-	 * @param deviceModel  绑定的设备类型
-	 * @param iWifiBind    绑定接口回调
-	 */
-	public void startBind(String wifiPassword, DeviceModel deviceModel, IWifiBind iWifiBind) {
-	
-	
+**设备devicemodel说明**
 
--    蓝牙设备绑定 
-   
-   蓝牙绑定api使用HetBleBindApi: 
-   
-1. 使用前需调用初始化蓝牙api
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">字段名称</th>
+			<th width="11%">字段类型</th>
+			<th width="74%">字段说明</th>
+		</tr>
+		<tr>
+			<td>deviceId</td>
+			<td>string</td>
+			<td>设备标识</td>
+		</tr>
+		<tr>
+			<td>macAddress</td>
+			<td>string</td>
+			<td>MAC地址</td>
+		</tr>
+		<tr>
+			<td>deviceBrandId</td>
+			<td>number</td>
+			<td>设备品牌标识</td>
+		</tr>
+		<tr>
+			<td>deviceBrandName</td>
+			<td>string</td>
+			<td>设备品牌名称</td>
+		</tr>
+		<tr>
+			<td>deviceTypeId</td>
+			<td>number</td>
+			<td>设备大分类标识</td>
+		</tr>
+		<tr>
+			<td>deviceTypeName</td>
+			<td>string</td>
+			<td>设备大分类名称</td>
+		</tr>
+		<tr>
+			<td>deviceSubtypeId</td>
+			<td>number</td>
+			<td>设备子分标识</td>
+		</tr>
+		<tr>
+			<td>deviceSubtypeName</td>
+			<td>string</td>
+			<td>设备子分类名称</td>
+		</tr>
+		<tr>
+			<td>deviceName</td>
+			<td>string</td>
+			<td>设备名称</td>
+		</tr>
+		<tr>
+			<td>roomId</td>
+			<td>string</td>
+			<td>房间标识</td>
+		</tr>
+		<tr>
+			<td>roomName</td>
+			<td>string</td>
+			<td>房间名称</td>
+		</tr>
+		<tr>
+			<td>authUserId</td>
+			<td>string</td>
+			<td>授权设备用户标识</td>
+		</tr>
+		<tr>
+			<td>bindTime</td>
+			<td>string</td>
+			<td>绑定时间</td>
+		</tr>
+		<tr>
+			<td>onlineStatus</td>
+			<td>number</td>
+			<td>在线状态（1-正常，2-异常）</td>
+		</tr>
+		<tr>
+			<td>share</td>
+			<td>number</td>
+			<td>设备分享（1-是，2-否，3-扫描分享）<font color=#c00>【2015-11-11新增状态（3）】</font></td>
+		</tr>
+		<tr>
+			<td>controlType</td>
+			<td>number</td>
+			<td>控制类型（1-原生，2-插件，3-H5插件）</td>
+		</tr>
+		<tr>
+			<td>userKey</td>
+			<td>string</td>
+			<td>MAC与设备ID生成的KEY</td>
+		</tr>
+		<tr>
+			<td>productId</td>
+			<td>number</td>
+			<td>设备型号标识</td>
+		</tr>
+		<tr>
+			<td>productName</td>
+			<td>string</td>
+			<td>设备型号名称</td>
+		</tr>
+		<tr>
+			<td>productCode</td>
+			<td>string</td>
+			<td>设备型号编码</td>
+		</tr>
+		<tr>
+			<td>productIcon</td>
+			<td>string</td>
+			<td>设备型号图标</td>
+		</tr>
+		<tr>
+			<td>moduleId</td>
+			<td>number</td>
+			<td>模块标识</td>
+		</tr>
+		<tr>
+			<td>moduleType</td>
+			<td>number</td>
+			<td>模块类型（1-WiFi，2-蓝牙，3-音频，4-GSM，5-红外）</td>
+		</tr>
+		<tr>
+			<td>moduleName</td>
+			<td>string</td>
+			<td>模块名称</td>
+		</tr>
+		<tr>
+			<td>radiocastName</td>
+			<td>string</td>
+			<td>设备广播名</td>
+		</tr>
+		<tr>
+			<td>deviceCode</td>
+			<td>string</td>
+			<td><font color=#c00>【2016-06-03新增】</font>设备编码</td>
+		</tr>
+	</tbody>
+</table>
 
-        /**
-        *  初始化蓝牙api
-        *  @return 0 成功 1 未开启蓝牙 2该手机不支持蓝牙功能
-        */
-        public int init() {
-       
-  
- 
 
-2. 蓝牙绑定api，回调接口IBleBind
-   
-		/**
-		* 开始绑定设备
-		*
-		* @param deviceModel 绑定的设备类型
-		* @param iBleBind    绑定接口回调
-		*/
-		public void startBind(DeviceModel deviceModel, IBleBind iBleBind) {
-	
+###5.2 wifi设备绑定
 
-3. 连接蓝牙设备,由于蓝牙可能同时扫描到多个设备，用户需选择指定的蓝牙设备 
-	  
-		/**
-		* 开始绑定设备
-		*
-		* @param deviceModel 绑定的设备类型
-		* @param iBleBind    绑定接口回调
-		*/
-		public void startBind(DeviceModel deviceModel, IBleBind iBleBind) {
-	 
-  
+   请确任在初始化sdk的配置时已开启wifi功能
 
--  直接绑定设备
-     
-   开发者知道设备的类型（参考devicemodel字段说明），可以根据设备类型，直接调用绑定方法，
-   无需先选择大类，小类
-      
-##5 设备管理
-    
-###5.1获取绑定设备列表
-   
+
+**wifi设备绑定**
+
+	HetWifiBindApi getInstance().startBind()
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        <tr>
+			<td>wifiPassword</td>
+			<td>是</td>
+			<td>string</td>
+			<td>手机当前连接wifi的wifi密码，请确保密码输入正确</td>
+		</tr>
+
+        <tr>
+			<td>productId</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+         <tr>
+			<td>iWifiBind</td>
+			<td>是</td>
+			<td>IWifiBind</td>
+			<td>wifi扫描绑定回调，参考说明</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+**接口iWifiBind说明**
+
+		 /**
+	     * 绑定状态
+	     * @param hetWifiBindState  绑定状态
+	     * 0 初始 1 开始扫描 2 扫描到设备 3 提交设备信息成功
+	     * 4 开始绑定 5 绑定成功 6 异常
+	     * @param msg     绑定状态描述
+	     */
+	    public void onStatus(HetWifiBindState hetWifiBindState, String msg);
+
+	    /**
+	     * 绑定失败
+	     * @param errId  绑定失败代码
+	     *  10001 未扫描到任何设备
+	     *  10002 绑定设备失败
+	     * @param msg    绑定失败描述
+	     */
+	    public void onFailed(int errId,String msg);
+
+	    /**
+	     * 绑定成功
+	     * @param deviceModel 绑定成功的设备model
+	     */
+	    public void onSuccess(DeviceModel deviceModel);
+
+
+	    /**
+	     * 扫描进度
+	     * @param type  类型
+	     * @param value 扫描设备进度值
+	     */
+	    public void onProgress(int type,int value);
+
+
+###5.3 蓝牙设备绑定
+
+   请确任在初始化sdk的配置时已开启蓝牙功能
+
+
+**5.3.1 初始化蓝牙绑定**
+
+	HetBleBindApi.getInstance().init()
+
+**5.3.2 开始蓝牙绑定**
+
+	HetBleBindApi.getInstance().startBind()
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+
+        <tr>
+			<td>productId</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+         <tr>
+			<td>iBleBind</td>
+			<td>是</td>
+			<td>IBleBind</td>
+			<td>蓝牙扫描绑定回调，参考说明</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+**接口IBleBind说明**
+
+	      /**
+	     * 绑定状态
+	     *
+	     * @param devices 扫描到设备(多个)
+	     * @param msg      扫描绑定状态描述
+	     */
+	    public void onScanDevices(String devices, String msg);
+
+	    /**
+	     * 绑定失败
+	     *
+	     * @param errId 绑定失败代码
+	     * @param msg   绑定失败描述
+	     */
+	    public void onFailed(int errId, String msg);
+
+	    /**
+	     * 绑定成功
+	     *
+	     * @param deviceModel 绑定成功的设备model
+	     */
+	    public void onSuccess(DeviceModel deviceModel);
+
+
+**5.3.3 连接蓝牙设备**
+
+ 蓝牙可能同时扫描到多个蓝牙设备，选择指定设备连接
+
+	HetBleBindApi.getInstance().connect()
+
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+	    <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>DeviceModel</td>
+			<td>扫描到的蓝牙设备</td>
+		</tr>
+	</tbody>
+</table>
+
+
+###5.4 获取绑定设备列表
+
    绑定成功后，用户可以获取绑定成功的设备列表，获取到设备列表，才可以控制设备
 
-  
+**接口调用请求说明**
 
-      HetDeviceListApi.getInstance().getBindList(new IDeviceList() {
-  
-###5.2修改设备信息
+	HetDeviceListApi.getInstance().getBindList()
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+         <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>DeviceModel</td>
+			<td>扫描到的蓝牙设备</td>
+		</tr>
+
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回设备model的json信息（列表）</td>
+		</tr>
+
+           <tr>
+			<td>deviceName</td>
+			<td>是</td>
+			<td>string</td>
+			<td>修改后的设备名称</td>
+		</tr>
+	</tbody>
+</table>
+
+**返回json信息说明**
+
+
+
+###5.5 修改设备信息
 
    修改设备信息，用户可以修改设备的名称，使用HetDeviceManagerApi
-        
-	
-	   /**
-		* 更新设备信息
-		*
-		* @param deviceModel  设备model
-		* @param iHetCallback 回调
-		* @param deviceName   设备名称
-		*/
-		public void update(DeviceModel deviceModel, final IHetCallback iHetCallback, 
-		String deviceName) {   
-	
-    
-###5.3解绑设备
-    
-   接触设备和clife平台的绑定关系，使用HetDeviceManagerApi
-        
-	
-		/**
-		* 解绑设备
-		*
-		* @param deviceModel
-		* @param iHetCallback
-		*/
-		public void unBind(DeviceModel deviceModel, final IHetCallback iHetCallback) {
-	
-	   
-###5.4获取设备协议
-   
+
+   **接口调用请求说明**
+
+	HetDeviceManagerApi.getInstance().update();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+	</tbody>
+</table>
+
+###5.6 解绑设备
+
+   解除已绑定设备和CLife平台的绑定关系
+
+**接口调用请求说明**
+
+	HetDeviceManagerApi.getInstance().unBind();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+	    <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>DeviceModel</td>
+			<td>已绑定设备model</td>
+		</tr>
+
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+	</tbody>
+</table>
+
+
+###5.7 获取设备协议
+
    获取设备在clife平台编辑的协议，在demo里面，进行设备控制的时候也会先获取设备的协议使用HetProtocolApi
 
- 	
+
 	     /***
 	     * 获取协议
 	     * @param iHetCallback  回调
 	     * @param productId 产品id
-	     * @param type 协议类型 0或者不传-完整协议	，包括以下协议内容 1-设备基本信息 
+	     * @param type 协议类型 0或者不传-完整协议	，包括以下协议内容 1-设备基本信息
 	     * 2-控制数据 3-运行数据 4-故障数据
 	     */
 	   	  public  void getProtocol(final IHetCallback iHetCallback,int productId,int type){
-	   	  
-    
-###5.5 获取设备历史数据
+
+##6 WIFI设备控制
+
+   用户需要根据在clife平台上注册的设备协议，定义model,后面的sdk版本会自动从后台拉取协议解析。
+目前demo 里定义了香薰机的model，请参考定义需要使用的model
+
+###6.1 获取数据
+
+   获取数据，指获取设备的运行数据和配置数据，使用HetDeviceSubmitApi方法
+
+   [1] 初始化，数据回调接口 IDeviceUpdateView
 
 
- 
+	      /**
+	      * 初始化设备请求数据
+	      * @param deviceModel  设备model(必须获取deviceid后)
+	      * @param deviceUpdateView  获取数据接口回调
+	      */
+          public void init(DeviceModel deviceModel,IDeviceUpdateView deviceUpdateView) {
+
+
+
+   若用户未配置协议，需继承小循环model解析接口 IUdpModelParser，并在初始化的时候传递，用户需根据设备类型解析字节数据
+
+
+		/**
+		* 初始化设备请求数据
+		* @param deviceModel  设备model
+		* @param parse        小循环数据解析
+		* @param deviceUpdateView  获取数据接口回调
+		*/
+		public void init(DeviceModel deviceModel, IUdpModelParser parse, IDeviceUpdateView deviceUpdateView) {
+
+
+   [2] 开始刷新数据，指开始获取设备的数据，默认每5s请求一次，用户可以设置时间间隔
+
+
+		/**
+		* 开始请求数据
+		*/
+		public void start() {
+
+
+   [3] 停止请求数据
+
+
+		/**
+		* 停止请求数据
+		*/
+	    public void stop() {
+
+
+   [4] 释放资源
+
+
+		/**
+		* 释放请求资源
+		*/
+		public void destory() {
+
+
+###6.2 下发数据
+
+   下发数据指，发送相关命令操作设备，发送调用HetDeviceSubmitApi方法
+
+   [1] 关于updateflag
+      这个修改标记位是为了做统计和配置下发的时候设备执行相应的功能。下发数据必须传递updateflag标志
+
+
+       例如，空气净化器（广磊K180）配置信息协议：
+
+       紫外线(1)、负离子(2)、臭氧(3)、儿童锁(4)、开关(5)、WiFi(6)、过滤网(7)、模式(8)、定时(9)、风量(10)
+       上面一共上10个功能，那么updateFlag就2个字节，没超过8个功能为1个字节，超过8个为2个字节，超过16个为3个字节，以此类推。
+
+       打开负离子，2个字节，每一个bit的值为下：
+
+       0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+   [2] 初始化
+
+
+	   	/**
+	   	* 初始化
+	   	* @param deviceModel  设备model
+	   	* @param submitUpdateView  获取数据接口回调
+	   	*/
+	   	public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
+
+
+   若用户未配置协议，需继承小循环model解析接口 IUdpModelParser，并在初始化的时候传递，用户需根据设备类型解析字节数据
+
+
+		/**
+		* 初始化
+		* @param deviceModel  设备model
+		* @param submitUpdateView  获取数据接口回调
+		*/
+	    public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
+
+
+   [3] 开启下发数据
+
+
+		/**
+		* 开启下发线程
+		*/
+	    public void start() {
+
+
+   [4] 停止下发数据
+
+
+		/**
+		* 停止下发数据
+		*/
+	    public void stop() {
+
+
+   [5] 释放资源
+
+
+		/**
+		* 释放相关资源
+		*/
+	    public void destory() {
+
+
+###6.3 直接控制wifi设备api
+
+  指用户直接调用相关api请求clife平台控制wifi设备，使用HetDeviceWifiControlApi
+
+
+
+
+- 向设备下发控制数据
+
+        /**
+         * 向设备下发控制数据
+         *
+         * @param iHetCallback 调用成功的回调监听
+         * @param deviceId 设备ID
+         * @param json     设备控制数据
+         */
+         public static void setDataToDevice(final IHetCallback iHetCallback, String deviceId, String json) {
+
+
+- 获取设备运行数据
+
+
+         /**
+          * 获取设备运行数据
+          * @param iHetCallback 调用成功的回调监听
+          * @param deviceId 设备ID
+           */
+         public static void getRunFromDevice(final IHetCallback iHetCallback, String deviceId) {
+
+
+- 获取设备控制数据
+
+
+         /**
+          * 获取设备控制数据
+          * @param iHetCallback 调用成功的回调监听
+          * @param deviceId 设备ID
+           */
+         public static void getConfigFromDevice(final IHetCallback iHetCallback, String deviceId) {
+
+- 获取设备异常数据
+
+        /**
+         * 获取设备异常数据
+          * @param iHetCallback 调用成功的回调监听
+          * @param deviceId 设备ID
+          */
+           public static void getErrorDataFromDevice(final IHetCallback iHetCallback, String deviceId) {
+
+###6.4 获取设备历史数据
+
+
+
    获取设备历史数据，分为运行数据，控制数据，异常数据，最多获取7天的历史数据使用HetDeviceDataHistroyApi
-   
+
    [1] 运行数据
 
-   
+
 	     /**
 	     * 获取设备运行数据列表（七天之内）
 	     *
@@ -302,8 +877,8 @@
 	     * @param pageIndex	否	int	当前页，默认为1
 	     */
 	    public void getRunDataList(final IHetCallback iHetCallback, String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
- 
-   	
+
+
    [2] 控制数据
 
 		/**
@@ -317,11 +892,11 @@
 		* @param pageIndex	否	int	当前页，默认为1
 		*/
 		public void getConfigDataList(final IHetCallback iHetCallback,String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
-  
-   
+
+
    [3] 异常数据
 
-  
+
 	     /**
 	     * 获取设备故障数据列表（七天之内）
 	     *
@@ -333,200 +908,19 @@
 	     * @param pageIndex	否	int	当前页，默认为1
 	     */
          public void getErrorDataList(final IHetCallback iHetCallback, String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
- 	
- 	
- 			
- 			
- 			
- 			
-##6 WIFI设备控制
-
-   用户需要根据在clife平台上注册的设备协议，定义model,后面的sdk版本会自动从后台拉取协议解析。
-目前demo 里定义了香薰机的model，请参考定义需要使用的model
-  
-###6.1 获取数据
-   
-   获取数据，指获取设备的运行数据和配置数据，使用HetDeviceSubmitApi方法
-     
-   [1] 初始化，数据回调接口 IDeviceUpdateView 
-     
-
-	      /**
-	      * 初始化设备请求数据
-	      * @param deviceModel  设备model(必须获取deviceid后)
-	      * @param deviceUpdateView  获取数据接口回调
-	      */
-          public void init(DeviceModel deviceModel,IDeviceUpdateView deviceUpdateView) {
-	
-	
-	 
-   若用户未配置协议，需继承小循环model解析接口 IUdpModelParser，并在初始化的时候传递，用户需根据设备类型解析字节数据  
-     
- 
-		/**
-		* 初始化设备请求数据
-		* @param deviceModel  设备model
-		* @param parse        小循环数据解析
-		* @param deviceUpdateView  获取数据接口回调
-		*/
-		public void init(DeviceModel deviceModel, IUdpModelParser parse, IDeviceUpdateView deviceUpdateView) {
-   
-		
-   [2] 开始刷新数据，指开始获取设备的数据，默认每5s请求一次，用户可以设置时间间隔
-     
-	
-		/**
-		* 开始请求数据
-		*/
-		public void start() {
-	
-		
-   [3] 停止请求数据
-	   
- 
-		/**
-		* 停止请求数据
-		*/
-	    public void stop() {
-  
-  
-   [4] 释放资源
-  
-	
-		/**
-		* 释放请求资源
-		*/
-		public void destory() {
-	
-
-###6.2 下发数据
-   
-   下发数据指，发送相关命令操作设备，发送调用HetDeviceSubmitApi方法
-     
-   [1] 关于updateflag
-      这个修改标记位是为了做统计和配置下发的时候设备执行相应的功能。下发数据必须传递updateflag标志
-     
-     
-       例如，空气净化器（广磊K180）配置信息协议：
-   	
-       紫外线(1)、负离子(2)、臭氧(3)、儿童锁(4)、开关(5)、WiFi(6)、过滤网(7)、模式(8)、定时(9)、风量(10)
-       上面一共上10个功能，那么updateFlag就2个字节，没超过8个功能为1个字节，超过8个为2个字节，超过16个为3个字节，以此类推。
-   	
-       打开负离子，2个字节，每一个bit的值为下：
-   	
-       0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
-   [2] 初始化
-
-
-	   	/**
-	   	* 初始化
-	   	* @param deviceModel  设备model
-	   	* @param submitUpdateView  获取数据接口回调
-	   	*/
-	   	public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
-
-	
-   若用户未配置协议，需继承小循环model解析接口 IUdpModelParser，并在初始化的时候传递，用户需根据设备类型解析字节数据
-     
-	
-		/**
-		* 初始化
-		* @param deviceModel  设备model
-		* @param submitUpdateView  获取数据接口回调
-		*/
-	    public void init(DeviceModel deviceModel,ISubmitUpdateView submitUpdateView) {
-	
-	
-   [3] 开启下发数据
-
-	
-		/**
-		* 开启下发线程
-		*/
-	    public void start() {
-	
-	
-   [4] 停止下发数据
-		
-	
-		/**
-		* 停止下发数据
-		*/
-	    public void stop() {
-	
-		
-   [5] 释放资源
-     
-	
-		/**
-		* 释放相关资源
-		*/
-	    public void destory() {
-	
-
-###6.3 直接控制wifi设备api
-
-  指用户直接调用相关api请求clife平台控制wifi设备，使用HetDeviceWifiControlApi
 
 
 
-
-- 向设备下发控制数据
-   
-        /**
-         * 向设备下发控制数据
-         *
-         * @param iHetCallback 调用成功的回调监听
-         * @param deviceId 设备ID
-         * @param json     设备控制数据
-         */
-         public static void setDataToDevice(final IHetCallback iHetCallback, String deviceId, String json) {
-
-
-- 获取设备运行数据
-
-   
-         /**
-          * 获取设备运行数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID
-           */
-         public static void getRunFromDevice(final IHetCallback iHetCallback, String deviceId) {
-
-
-- 获取设备控制数据
-
-	
-         /**
-          * 获取设备控制数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID
-           */
-         public static void getConfigFromDevice(final IHetCallback iHetCallback, String deviceId) {
-
-- 获取设备异常数据
-
-        /**
-         * 获取设备异常数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID       
-          */
-           public static void getErrorDataFromDevice(final IHetCallback iHetCallback, String deviceId) {     
-   
-
-    
-
-	
 ##7 第三方蓝牙设备接入
-   
+
    >第三方蓝牙设备接入指用户已开发好设备的的控制等功能，将设备接入clife开放平台，上传数据到clife平台，从clife平台获取  数据，蓝牙接入调用HetThridBleApi，需授权登录成功后才能使用相关api
-   
+
 ###7.1提交设备信息到服务器
-   
-   将设备信息提交到服务器，设备信息可以通过大小分类获取，也可以默认传入，DEMO里面常用直接传入的形式 
+
+   将设备信息提交到服务器，设备信息可以通过大小分类获取，也可以默认传入，DEMO里面常用直接传入的形式
    提交成功后，服务器会为该设备返回deviceId，只有获取deviceId后才能上传数据和获取历史数据
-   
-      
+
+
         /**
         * 将设备信息提交到和而泰服务器
         * @param deviceModel  设备model，
@@ -534,12 +928,12 @@
         */
         public void bindToHetServer(final DeviceModel deviceModel, final IHetCallback iHetCallback) {
   `
-		
+
 ###7.2上传数据
 
-  以字节形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据	
-	 
-	
+  以字节形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据
+
+
         /**
         * 上传数据
         *
@@ -549,11 +943,11 @@
         * @param type         设备类型 1历史数据 2实时数据
         */
         public void updateData(final IHetCallback iHetCallback,byte[] datas, DeviceModel deviceModel, int type) {
-	
-	
+
+
    以json形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据
-   
-	
+
+
         /**
         * 上传数据
         *
@@ -563,13 +957,13 @@
         * @param type         设备类型 1历史数据 2实时数据
         */
         public void updateData(final IHetCallback iHetCallback, String json,DeviceModel deviceModel, int type) {
-	
-  
+
+
 ###7.3获取历史数据
-   
+
 上传数据后，可以获取历史数据，数据以byte形式返回，详细的字段说明请参考 ThirdBLeDataModel
- 
-	
+
+
         /**
         * 获取历史数据
         *
@@ -580,8 +974,9 @@
         * @param pageIndex    当前页（默认1）
         */
         public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
-	
+
 ##8 和而泰通用HTTP请求
+
 和而泰通用HTTP请求指，开发者通用调用sdk的通用http的api请求访问clife开放平台的相关功能，如菜谱，场景联动等功能
 参考HetHttpApi，使用用户需参考相关api请求文档，
     通用GET请求不带参数
