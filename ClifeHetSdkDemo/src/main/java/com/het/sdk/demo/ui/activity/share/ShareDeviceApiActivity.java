@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.google.gson.reflect.TypeToken;
 import com.het.open.lib.api.HetDeviceShareApi;
-import com.het.open.lib.api.HetMessageApi;
+import com.het.open.lib.api.HetPhoneAuthDeviceApi;
 import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.model.DeviceModel;
 import com.het.open.lib.model.share.AuthDeviceModel;
@@ -123,19 +123,19 @@ public class ShareDeviceApiActivity extends BaseActivity implements View.OnClick
      * 获取分享授权消息
      */
     private void getMessage() {
-        HetMessageApi.getInstance().getListByPage(new IHetCallback() {
-            @Override
-            public void onSuccess(int code, String msg) {
-                if (!StringUtils.isNull(msg)){
-                  // MessgeModel model = GsonUtil.getGsonInstance().fromJson(msg, MessgeModel.class);
-                }
-            }
-
-            @Override
-            public void onFailed(int code, String msg) {
-                showToast(code+msg);
-            }
-        });
+//        HetPhoneAuthDeviceApi.getInstance().getAllAuthDevice(new IHetCallback() {
+//            @Override
+//            public void onSuccess(int code, String msg) {
+//                if (!StringUtils.isNull(msg)){
+//                  // MessgeModel model = GsonUtil.getGsonInstance().fromJson(msg, MessgeModel.class);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailed(int code, String msg) {
+//                showToast(code+msg);
+//            }
+//        });
 
     }
 
@@ -223,12 +223,12 @@ public class ShareDeviceApiActivity extends BaseActivity implements View.OnClick
             HetDeviceShareApi.getInstance().del(new IHetCallback() {
                 @Override
                 public void onSuccess(int code, String msg) {
-                          showToast("已删除给"+ phone+"分享信息");
+                    showToast("已删除给"+ phone+"分享信息");
                 }
 
                 @Override
                 public void onFailed(int code, String msg) {
-                          showToast(code+msg);
+                    showToast(code+msg);
                 }
             },deviceId,phone);
         }
@@ -244,7 +244,7 @@ public class ShareDeviceApiActivity extends BaseActivity implements View.OnClick
         HetDeviceShareApi.getInstance().agree(new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
-                   showToast("已同意设备授权");
+                showToast("已同意设备授权");
             }
 
             @Override

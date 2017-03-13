@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion '22.0.1'
-
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.het.sdk.demo"
@@ -15,8 +14,9 @@ android {
         if (project.hasProperty('VERSION_NAME')) {
             versionName VERSION_NAME
         }
+         multiDexEnabled true
 
-    }
+    } // multiDexEnabled true
     buildTypes {
         release {
             minifyEnabled false
@@ -26,17 +26,13 @@ android {
     }
 }
 
-repositories {
-    flatDir {
-        dirs 'libs' //this way we can find the .aar file in libs folder
-    }
-}
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     //和而泰sdk库
-    compile 'com.github.szhittech:HetOpenSdk:1.0.2-SNAPSHOT'
+    compile 'com.github.szhittech:HetOpenSdk:1.0.3-SNAPSHOT'
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile 'com.facebook.shimmer:shimmer:0.1.0@aar'

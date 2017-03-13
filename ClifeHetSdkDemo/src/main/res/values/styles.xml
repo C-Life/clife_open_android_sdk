@@ -32,7 +32,6 @@
 
     <style name="style_common_button" >
         <item name="android:layout_margin">30dp</item>
-
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/common_textsize_xxmiddle</item>

@@ -5,9 +5,9 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.gson.reflect.TypeToken;
-import com.het.open.lib.api.HetBleControlApi;
+import com.het.open.lib.api.HetSleepBleControlApi;
+import com.het.open.lib.api.HetSleepLaceReportApi;
 import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.model.DeviceModel;
 import com.het.open.lib.utils.GsonUtil;
@@ -20,13 +20,13 @@ import com.het.sdk.demo.model.mattress.SleepDataModel;
 import com.het.sdk.demo.ui.activity.BaseActivity;
 import com.het.sdk.demo.utils.Constants;
 import com.het.sdk.demo.utils.HandlerUtil;
-
 import java.util.List;
 
 
 /**
  * 蓝牙设备控制页面（睡眠带子）
  */
+
 public class MattressActivity extends BaseActivity implements View.OnClickListener {
 
 
@@ -38,6 +38,8 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
     private Button btnSync;
     private Button btnHistroy;
     private Button btnReal;
+    private Button btnDayReport;
+    private Button btnTimeReport;
     private final int SHOW_REAL_DATA = 0x01;
     private final int SHOW_HISTROY_DATA = 0x02;
 
@@ -89,6 +91,10 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
         btnReal.setOnClickListener(this);
         editReal = (EditText) findViewById(R.id.edt_real);
         editHistroy = (EditText) findViewById(R.id.edt_histroy);
+        btnDayReport=(Button)findViewById(R.id.btn_getSummaryDayData);
+        btnDayReport.setOnClickListener(this);
+        btnTimeReport=(Button)findViewById(R.id.btn_getDayDataList);
+        btnTimeReport.setOnClickListener(this);
 
     }
 
@@ -96,9 +102,46 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.btn_getSummaryDayData:
+//                HetSleepLaceReportApi.getInstance().getSummaryDayData(new IHetCallback() {
+//                    @Override
+//                    public void onSuccess(int code, String msg) {
+//                        if (code==0){
+//                            if (!StringUtils.isNull(msg)){
+//                                showToast(msg);
+//                            }
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailed(int code, String msg) {
+//                        showToast(code+msg);
+//                    }
+//                },deviceModel.getDeviceId(),"2017-01-07",480);
+                //  HetSleepLaceReportApi.getInstance().
+                //  HetSleepLaceReportApi.getInstance().
+                break;
+            case R.id.btn_getDayDataList:
+                HetSleepLaceReportApi.getInstance().getDayDataList(new IHetCallback() {
+                    @Override
+                    public void onSuccess(int code, String msg) {
+                        if (code==0){
+                            if (!StringUtils.isNull(msg)){
+                                showToast(msg);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailed(int code, String msg) {
+                        showToast(code+msg);
+                    }
+                },deviceModel.getDeviceId(),"2017-01-06","2017-01-07");
+
+                break;
             case R.id.btn_sync_data:
                 showDialog("同步数据");
-                HetBleControlApi.getInstance().syncData(deviceModel, new IHetCallback() {
+                HetSleepBleControlApi.getInstance().syncData( new IHetCallback() {
                     @Override
                     public void onSuccess(int i, String s) {
                         hideDialog();
@@ -111,7 +154,7 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
                     }
 
 
-                });
+                },deviceModel);
 
 
                 break;
@@ -120,7 +163,7 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
                 showDialog("获取历史数据");
                 String startTime = TimeUtils.getBeforeDate(8);
                 String endTime = TimeUtils.getYesterday();
-                HetBleControlApi.getInstance().getHistroyData(deviceModel, new IHetCallback() {
+                HetSleepBleControlApi.getInstance().getHistroyData( new IHetCallback() {
 
                     @Override
                     public void onSuccess(int i, String s) {
@@ -156,12 +199,12 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
                     }
 
 
-                }, startTime, endTime);
+                },deviceModel, startTime, endTime);
 
                 break;
             case R.id.btn_real_data:
                 showDialog("获取实时数据");
-                HetBleControlApi.getInstance().getRealData(deviceModel, new IHetCallback() {
+                HetSleepBleControlApi.getInstance().getRealData(new IHetCallback() {
                     @Override
                     public void onSuccess(int i, String s) {
                         hideDialog();
@@ -175,7 +218,7 @@ public class MattressActivity extends BaseActivity implements View.OnClickListen
                     }
 
 
-                });
+                },deviceModel);
                 break;
 
         }
