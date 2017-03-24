@@ -82,7 +82,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.szhittech/BlueToothSupport/1.0.4-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.szhittech/HetOpenSdk/1.0.3-SNAPSHOT/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.szhittech/bindlogiclib/1.2.0-SNAPSHOT/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.szhittech/bindlogiclib/1.2.1-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.github.szhittech/udpcoresdk/1.3.2-SNAPSHOT/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
@@ -103,6 +103,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="HetOpenSdk-1.0.3-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="bindlogiclib-1.2.1-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="gson-2.5" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.2.0" level="project" />
@@ -112,7 +113,6 @@
     <orderEntry type="library" exported="" name="core-3.2.1" level="project" />
     <orderEntry type="library" exported="" name="imagepipeline-0.8.1" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="bindlogiclib-1.2.0-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" exported="" name="fresco-0.8.1" level="project" />
     <orderEntry type="library" exported="" name="udpcoresdk-1.3.2-SNAPSHOT" level="project" />

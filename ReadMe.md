@@ -688,7 +688,160 @@
    用户需要根据在clife平台上注册的设备协议，定义model,后面的sdk版本会自动从后台拉取协议解析。
 目前demo 里定义了香薰机的model，请参考定义需要使用的model
 
-###6.1 获取数据
+###6.1 控制wifi设备api
+
+  指用户直接调用相关api请求clife平台控制wifi设备，使用HetDeviceWifiControlApi
+
+
+
+
+- 向设备下发控制数据
+
+   **接口调用请求说明**
+
+	HetDeviceWifiControlApi.getInstance().setDataToDevice();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+
+	    <tr>
+			<td>deviceId</td>
+			<td>是</td>
+			<td>String</td>
+			<td>已绑定设备id</td>
+		</tr>
+
+        <tr>
+			<td>json</td>
+			<td>是</td>
+			<td>String</td>
+			<td>下发设备的控制数据</td>
+		</tr>
+
+	</tbody>
+</table>
+
+
+- 获取设备运行数据
+
+
+**接口调用请求说明**
+
+	HetDeviceWifiControlApi.getInstance().getRunFromDevice();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+
+	    <tr>
+			<td>deviceId</td>
+			<td>是</td>
+			<td>String</td>
+			<td>已绑定设备id</td>
+		</tr>
+
+	</tbody>
+</table>
+
+
+- 获取设备控制数据
+
+**接口调用请求说明**
+
+	HetDeviceWifiControlApi.getInstance().getConfigFromDevice();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+
+	    <tr>
+			<td>deviceId</td>
+			<td>是</td>
+			<td>String</td>
+			<td>已绑定设备id</td>
+		</tr>
+
+	</tbody>
+</table>
+
+- 获取设备异常数据
+
+**接口调用请求说明**
+
+	HetDeviceWifiControlApi.getInstance().getErrorDataFromDevice();
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        
+		<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回0</td>
+		</tr>
+
+	    <tr>
+			<td>deviceId</td>
+			<td>是</td>
+			<td>String</td>
+			<td>已绑定设备id</td>
+		</tr>
+
+	</tbody>
+</table>
+
+###6.2 获取数据
 
    获取数据，指获取设备的运行数据和配置数据，使用HetDeviceSubmitApi方法
 
@@ -743,7 +896,7 @@
 		public void destory() {
 
 
-###6.2 下发数据
+###6.3 下发数据
 
    下发数据指，发送相关命令操作设备，发送调用HetDeviceSubmitApi方法
 
@@ -808,54 +961,7 @@
 	    public void destory() {
 
 
-###6.3 直接控制wifi设备api
 
-  指用户直接调用相关api请求clife平台控制wifi设备，使用HetDeviceWifiControlApi
-
-
-
-
-- 向设备下发控制数据
-
-        /**
-         * 向设备下发控制数据
-         *
-         * @param iHetCallback 调用成功的回调监听
-         * @param deviceId 设备ID
-         * @param json     设备控制数据
-         */
-         public static void setDataToDevice(final IHetCallback iHetCallback, String deviceId, String json) {
-
-
-- 获取设备运行数据
-
-
-         /**
-          * 获取设备运行数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID
-           */
-         public static void getRunFromDevice(final IHetCallback iHetCallback, String deviceId) {
-
-
-- 获取设备控制数据
-
-
-         /**
-          * 获取设备控制数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID
-           */
-         public static void getConfigFromDevice(final IHetCallback iHetCallback, String deviceId) {
-
-- 获取设备异常数据
-
-        /**
-         * 获取设备异常数据
-          * @param iHetCallback 调用成功的回调监听
-          * @param deviceId 设备ID
-          */
-           public static void getErrorDataFromDevice(final IHetCallback iHetCallback, String deviceId) {
 
 ###6.4 获取设备历史数据
 
