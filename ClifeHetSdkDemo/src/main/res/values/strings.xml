@@ -174,11 +174,12 @@
     <string name="btn_auto_auth">一键登录</string>
     <string name="btn_device_bind">设备绑定</string>
     <string name="btn_get_user_mess">获取用户信息</string>
-    <string name="btn_ok_bind">直接绑定</string>
+    <string name="btn_ok_bind">第三方wifi设备绑定</string>
     <string name="btn_third_ble_bind">第三方蓝牙设备绑定</string>
     <string name="bind_device_intro">绑定设备，用户需在开放平台添加自己的设备，并与帐号关联</string>
     <string name="bind_ok_intro">直接绑定，用户需传入deviceModel的相关信息绑定</string>
     <string name="bind_third_ble_intro">第三方蓝牙设备绑定，用户自己控制设备连接控制，将设备数据传给clife开发平台</string>
+    <string name="bind_third_wifi_intro">第三方wifi设备绑定，相关android系统的设备</string>
     <string name="btn_scene">设备场景</string>
     <string name="scene_intro">通过设置设备场景，用户可以联动控制设备</string>
     <string name="btn_message">我的消息</string>

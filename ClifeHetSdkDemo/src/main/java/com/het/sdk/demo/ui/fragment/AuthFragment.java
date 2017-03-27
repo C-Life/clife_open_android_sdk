@@ -127,6 +127,7 @@ public class AuthFragment extends BaseFragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_auth:
                 auth();
+               // autoAuth();
                 break;
 //            case R.id.btn_auto_auth:
 //

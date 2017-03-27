@@ -1015,111 +1015,343 @@
 	     */
          public void getErrorDataList(final IHetCallback iHetCallback, String deviceId, String startDate,String  endDate,int pageRows, int pageIndex) {
 
+##7 第三方wifi设备接入
+
+   >第三方wifi设备接入指用户采用android系统的设备自带wifi模块，无法通过扫描方式接入路由器，直接绑定到clife后台。
+
+###第三方wifi设备接入
+
+  **第三方wifi设备绑定**
+
+	HetThridWifiApi.getInstance().bindToHetServer
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        <tr>
+			<td>mac</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的mac地址</td>
+		</tr>
+
+        <tr>
+			<td>productId</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+    	<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回设备model</td>
+		</tr>
 
 
-##7 第三方蓝牙设备接入
+	</tbody>
+</table>
+  `
+成功返回设备的model
+设备控制请参考**6wifi设备控制**
+
+
+##8 第三方蓝牙设备接入
 
    >第三方蓝牙设备接入指用户已开发好设备的的控制等功能，将设备接入clife开放平台，上传数据到clife平台，从clife平台获取  数据，蓝牙接入调用HetThridBleApi，需授权登录成功后才能使用相关api
 
-###7.1提交设备信息到服务器
+###8.1提交设备信息到服务器
 
    将设备信息提交到服务器，设备信息可以通过大小分类获取，也可以默认传入，DEMO里面常用直接传入的形式
    提交成功后，服务器会为该设备返回deviceId，只有获取deviceId后才能上传数据和获取历史数据
+**设备绑定**
+
+	HetThridBleApi getInstance().bindToHetServer()
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
 
 
-        /**
-        * 将设备信息提交到和而泰服务器
-        * @param deviceModel  设备model，
-        * @param iHetCallback  回调
-        */
-        public void bindToHetServer(final DeviceModel deviceModel, final IHetCallback iHetCallback) {
-  `
+        <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+    	<tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回设备model</td>
+		</tr>
+
+
+	</tbody>
+</table>
+
+  
 
 ###7.2上传数据
 
   以字节形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据
+**接口方法**
 
 
-        /**
-        * 上传数据
-        *
-        * @param iHetCallback
-        * @param deviceModel  deviceModel
-        * @param datas        数据
-        * @param type         设备类型 1历史数据 2实时数据
-        */
-        public void updateData(final IHetCallback iHetCallback,byte[] datas, DeviceModel deviceModel, int type) {
+   `HetThridBleApi getInstance().updateData()`
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+  	    <tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回设备model</td>
+		</tr>
+
+        <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+  
+        <tr>
+			<td>datas</td>
+			<td>是</td>
+			<td>byte[]</td>
+			<td>数据内容</td>
+		</tr>
 
 
-   以json形式上传蓝牙设备的数据，设备数据分为实时数据和历史数据
+        <tr>
+			<td>type </td>
+			<td>是</td>
+			<td>int</td>
+			<td>1历史数据 2实时数据</td>
+		</tr>
 
 
-        /**
-        * 上传数据
-        *
-        * @param iHetCallback
-        * @param deviceModel  deviceModel
-        * @param json        数据
-        * @param type         设备类型 1历史数据 2实时数据
-        */
-        public void updateData(final IHetCallback iHetCallback, String json,DeviceModel deviceModel, int type) {
+	</tbody>
+</table>
+        
 
+
+ 
 
 ###7.3获取历史数据
+上传数据后，可以获取历史数据，数据以byte形式返回
 
-上传数据后，可以获取历史数据，数据以byte形式返回，详细的字段说明请参考 ThirdBLeDataModel
+**接口方法**
 
 
-        /**
-        * 获取历史数据
-        *
-        * @param iHetCallback
-        * @param deviceModel  deviceModel
-        * @param order        排序方式（0-降序 1-升序 默认0-降序）
-        * @param pageRows     每页显示的行数(默认20)
-        * @param pageIndex    当前页（默认1）
-        */
-        public void getData(final IHetCallback iHetCallback,DeviceModel deviceModel, int order,int pageRows, int pageIndex) {
+   `HetThridBleApi getInstance().etData()`
 
-##8 和而泰通用HTTP请求
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+  	    <tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回设备model</td>
+		</tr>
+
+        <tr>
+			<td>deviceModel</td>
+			<td>是</td>
+			<td>string</td>
+			<td>设备的产品id，从开放平台获取</td>
+		</tr>
+
+  
+        <tr>
+			<td>order</td>
+			<td>否</td>
+			<td>int</td>
+			<td>排序方式（0-降序 1-升序 默认0-降序）</td>
+		</tr>
+
+
+         <tr>
+			<td>pageRows</td>
+			<td>否</td>
+			<td>int</td>
+			<td>每页显示的行数(默认20)</td>
+		</tr>
+
+     <tr>
+			<td>pageIndex</td>
+			<td>否</td>
+			<td>int</td>
+			<td>当前页（默认1）</td>
+		</tr>
+	</tbody>
+</table>
+        
+
+
+
+##9 和而泰通用HTTP请求
 
 和而泰通用HTTP请求指，开发者通用调用sdk的通用http的api请求访问clife开放平台的相关功能，如菜谱，场景联动等功能
 参考HetHttpApi，使用用户需参考相关api请求文档，
-    通用GET请求不带参数
-    
-        /**
-         * get请求
-         * @param url    请求地址
-         * @param callback  请求结果回调
-    
-         */
-        public void hetGet(String url,  IHetCallback callback){
-        
-通用GET请求带参数
+###9.1   通用GET请求不带参数
+       
+**接口方法**
 
-         /**
-          * get请求
-          * @param url    请求地址
-          * @param params  请求参数
-          * @param callback  请求结果回调
-     
-          */
-         public void hetGet(String url, TreeMap params,  IHetCallback callback){
-         
- 通用POST请求
- 
-      /**
-         * post请求
-         * @param url    请求地址
-         * @param params  请求参数
-         * @param callback  请求结果回调
-    
-         */
-        public void hetPost(String url, TreeMap params, IHetCallback callback){
 
-##9 异常说明
+   `HetHttpApi getInstance().hetGet()`
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        <tr>
+			<td>url</td>
+			<td>是</td>
+			<td>string</td>
+			<td>请求地址</td>
+		</tr>
+
+  	    <tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回json数据</td>
+		</tr>
+
+
+
+  
+      
+	</tbody>
+</table>    
    
-###9.1 网络请求全局返回码说明
+        
+###9.2 通用GET请求带参数
+
+**接口方法**
+
+
+   `HetHttpApi getInstance().hetGet()`
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        <tr>
+			<td>url</td>
+			<td>是</td>
+			<td>string</td>
+			<td>请求地址</td>
+		</tr>
+
+       <tr>
+			<td>params</td>
+			<td>是</td>
+			<td>请求参数</td>
+			<td>请求地址</td>
+		</tr>
+
+  	    <tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回json数据</td>
+		</tr>
+      
+	</tbody>
+</table>   
+         
+###9.3 通用POST请求
+
+**接口方法**
+
+
+   `HetHttpApi getInstance().hetPost()`
+
+**参数说明**
+<table width="100%" style="border-spacing: 0;  border-collapse: collapse;">
+	<tbody>
+		<tr>
+			<th width="16%">参数名称</th>
+			<th width="11%">是否必须</th>
+			<th width="11%">字段类型</th>
+			<th width="62%">参数说明</th>
+		</tr>
+
+        <tr>
+			<td>url</td>
+			<td>是</td>
+			<td>string</td>
+			<td>请求地址</td>
+		</tr>
+
+       <tr>
+			<td>params</td>
+			<td>是</td>
+			<td>请求参数</td>
+			<td>请求地址</td>
+		</tr>
+
+  	    <tr>
+			<td>callback</td>
+			<td>是</td>
+			<td>IHetCallback</td>
+			<td>接口回调，成功返回json数据</td>
+		</tr>
+      
+	</tbody>
+ 
+  </table>    
+
+##10 异常说明
+   
+###10.1 网络请求全局返回码说明
   
    | 返回码 | 说明  |
    | --- | --- |
@@ -1174,7 +1406,7 @@
    
    
 
-###  9.2 设备无法绑定 
+###  10.2 设备无法绑定 
 	  
 1. 设备是否置为绑定模式，是否在绑定的有效时间内
 2. 是否正确输入wifi密码,请确认手机是否能正常连接网络

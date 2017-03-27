@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.het.open.lib.api.HetThridBleApi;
+import com.het.open.lib.api.HetThridWifiApi;
+import com.het.open.lib.callback.IHetCallback;
+import com.het.open.lib.utils.StringUtils;
 import com.het.sdk.demo.R;
 import com.het.sdk.demo.ui.activity.ThirdDeviceActivity;
 import com.het.sdk.demo.ui.activity.bind.DeviceTypeListActivity;
@@ -39,7 +44,7 @@ public class BindFragment extends BaseFragment {
     private void initView(View rootView) {
         btnBindDevice=(Button)rootView.findViewById(R.id.btn_device_bind);
         btnBindDevice.setOnClickListener(onClickListener);
-        btnOkBind =(Button)rootView.findViewById(R.id.btn_ok_bind);
+        btnOkBind =(Button)rootView.findViewById(R.id.btn_third_wifi_bind);
         btnOkBind.setOnClickListener(onClickListener);
         btnThirdBle=(Button)rootView.findViewById(R.id.btn_third_ble_bind);
         btnThirdBle.setOnClickListener(onClickListener);
@@ -55,8 +60,8 @@ public class BindFragment extends BaseFragment {
                     Intent intent = new Intent(getActivity(), DeviceTypeListActivity.class);
                     startActivity(intent);
                     break;
-                case R.id.btn_ok_bind:
-
+                case R.id.btn_third_wifi_bind:
+                    wifiBindToServer();
                     break;
                 case R.id.btn_third_ble_bind:
                     Intent intentBleThird = new Intent(getActivity(), ThirdDeviceActivity.class);
@@ -68,4 +73,24 @@ public class BindFragment extends BaseFragment {
 
 
     };
+
+    public void wifiBindToServer(){
+        String mac="58e8765013ba";
+        String productId="1677";
+        HetThridWifiApi.getInstance().bindToHetServer(mac, productId, new IHetCallback() {
+            @Override
+            public void onSuccess(int code, String msg) {
+                if (code==0){
+                    showToast(msg);
+                }
+            }
+
+            @Override
+            public void onFailed(int code, String msg) {
+                if (!StringUtils.isNull(msg)){
+                    showToast(msg);
+                }
+            }
+        });
+    }
 }
