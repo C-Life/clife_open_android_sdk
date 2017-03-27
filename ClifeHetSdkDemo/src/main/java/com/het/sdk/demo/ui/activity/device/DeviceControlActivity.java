@@ -153,22 +153,7 @@ public class DeviceControlActivity extends BaseActivity {
      */
     private void initSubmitData() {
 
-        HetDeviceSubmitApi.getInstance().init(deviceModel, new ISubmitUpdateView() {
-            @Override
-            public void submitFailure(int code, String msg, String json) {
-                showToast(code + msg);
-            }
-
-            @Override
-            public void submitSuccess(String s) {
-                if (!StringUtils.isNull(s)){
-                    showToast(s);
-                }else {
-                    showToast("下发数据成功");
-                }
-
-            }
-        });
+        HetDeviceSubmitApi.getInstance().init(deviceModel, iSubmitUpdateView);
         HetDeviceSubmitApi.getInstance().start();
     }
 
@@ -261,6 +246,7 @@ public class DeviceControlActivity extends BaseActivity {
                         String data=handleJson(configData);
                         HetDeviceSubmitApi.getInstance().submit(data);
                     } catch (Exception e) {
+                        LogUtils.e("下发数据失败",e.toString());
                         showToast(e.toString());
                     }
                 }
@@ -318,4 +304,20 @@ public class DeviceControlActivity extends BaseActivity {
         }
 
     }
+
+    ISubmitUpdateView iSubmitUpdateView=new ISubmitUpdateView() {
+        @Override
+        public void submitFailure(int code, String msg, String json) {
+            showToast(code + msg);
+        }
+
+        @Override
+        public void submitSuccess(String s) {
+            if (!StringUtils.isNull(s)){
+                showToast(s);
+            }else {
+                showToast("下发数据成功");
+            }
+        }
+    };
 }

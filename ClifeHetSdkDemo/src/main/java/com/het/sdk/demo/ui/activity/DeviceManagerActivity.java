@@ -12,6 +12,7 @@ import com.het.open.lib.model.DeviceModel;
 import com.het.open.lib.utils.StringUtils;
 import com.het.sdk.demo.R;
 import com.het.sdk.demo.ui.activity.device.DeviceControlActivity;
+import com.het.sdk.demo.ui.activity.device.DeviceWifiControlActivity;
 import com.het.sdk.demo.ui.activity.device.HumidifierDeviceControlActivity;
 import com.het.sdk.demo.ui.activity.device.MattressActivity;
 import com.het.sdk.demo.ui.activity.share.ShareMainActivity;
@@ -78,7 +79,7 @@ public class DeviceManagerActivity extends BaseActivity implements View.OnClickL
                         intent.putExtra(Constants.DEVICE_MODEL, deviceModel);
                         startActivity(intent);
                     } else {
-                        Intent intent = new Intent(DeviceManagerActivity.this, DeviceControlActivity.class);
+                        Intent intent = new Intent(DeviceManagerActivity.this, DeviceWifiControlActivity.class);
                         intent.putExtra(Constants.DEVICE_MODEL, deviceModel);
                         startActivity(intent);
                     }

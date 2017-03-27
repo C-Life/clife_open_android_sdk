@@ -48,6 +48,9 @@
         <activity android:name=".ui.activity.device.MattressActivity">
 
         </activity>
+        <activity android:name=".ui.activity.device.DeviceWifiControlActivity">
+
+        </activity>
         <activity android:name=".ui.activity.scene.SceneSystemListActivity">
 
         </activity>
