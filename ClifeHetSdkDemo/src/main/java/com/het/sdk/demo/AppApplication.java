@@ -1,7 +1,6 @@
 package com.het.sdk.demo;
 
 import android.app.Application;
-
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.het.open.lib.api.HetSdk;
 import com.het.open.lib.model.ConfigModel;
