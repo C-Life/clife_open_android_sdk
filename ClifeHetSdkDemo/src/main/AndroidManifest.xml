@@ -110,9 +110,6 @@
 
         </activity>
 
-        <activity
-            android:name="com.het.open.lib.ui.HetWebViewActivity"
-            android:exported="true"></activity>
 
 
 

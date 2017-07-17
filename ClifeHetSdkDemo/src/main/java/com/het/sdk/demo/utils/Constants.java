@@ -21,8 +21,8 @@ package com.het.sdk.demo.utils;
  */
 public class Constants {
     //开放平台绑定
-    public static final String APP_ID = "30048";
-    public static final String APP_SECRET = "9e0ab42cc3b54fca8c56affa6be059cf";
+    public static final String APP_ID = "10014";
+    public static final String APP_SECRET = "bf1f3ce24b304af3ab7971aaec318135";
 
     public static final String WIFI_IFFO_MODEL="WIFI_IFFO_MODEL";
     public static final String BIND_ERROR_MSG="BIND_ERROR_MSG";   //绑定失败信息

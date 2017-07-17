@@ -1,10 +1,8 @@
 /build
-
-
 /.idea/
 /.gradle/
 /gradle/
-/ClifeOpenAndroidSdk.iml
 /gradlew
 /gradlew.bat
 /ClifeHetSdkDemo/ClifeHetSdkDemo.iml
+/clife_open_android_sdk.iml

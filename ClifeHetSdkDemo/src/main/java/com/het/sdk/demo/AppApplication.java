@@ -1,7 +1,9 @@
 package com.het.sdk.demo;
 
 import android.app.Application;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.het.UdpCore.Utils.SystemUtils;
 import com.het.open.lib.api.HetSdk;
 import com.het.open.lib.model.ConfigModel;
 import com.het.open.lib.utils.GlobalAddr;
@@ -15,8 +17,12 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initHetSdk();
-        initFresco();
+        String processName = SystemUtils.getProcessName(this, android.os.Process.myPid());
+        if (processName.equals(this.getPackageName())) {
+            initHetSdk();
+            initFresco();
+        }
+
 
     }
 
