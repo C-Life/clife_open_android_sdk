@@ -36,6 +36,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     //和而泰sdk库
+
+
     compile 'com.github.szhittech:HetOpenSdk:1.0.5-SNAPSHOT'
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
