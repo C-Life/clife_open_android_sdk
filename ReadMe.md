@@ -23,7 +23,7 @@
 
     dependencies {
         //和而泰sdk库
-         compile 'com.github.szhittech:HetOpenSdk:1.0.4-SNAPSHOT'
+         compile 'com.github.szhittech:HetOpenSdk:1.0.5-SNAPSHOT'
     }
 	
   
@@ -32,7 +32,6 @@
 ###3.3添加权限
    需在AndroidManifest.xml中声明以下权限
    
-
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -40,14 +39,7 @@
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-	
-###3.4添加授权登录页面的文件声明
-   
-	
-	<activity android:name="com.het.open.lib.ui.HetWebViewActivity" android:exported="true">
-	</activity>
-	
+		
 	
 ##4. 功能说明
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.het.open.lib.api.HetHttpApi;
-import com.het.open.lib.callback.ICallback;
 import com.het.open.lib.callback.IHetCallback;
 import com.het.open.lib.utils.LogUtils;
 import com.het.open.lib.utils.StringUtils;
@@ -94,9 +93,16 @@ public class CommonFragment extends BaseFragment implements View.OnClickListener
 
 
     public void httpGet(){
-        String url="v1/app/customization/cookbook/menu/getTopMenuByRand";
+        String url="v1/app/customization/broadair/analysis/cityAirCleanSort";
+        //startDate	是	string	日期（yyyy-MM-dd）
+        //rankMode	否	Integer	排名方式（1-计重，2-计数，默认值计数）
+        //spaceType	否	Integer	空间类型排序（1-室外，2-室内，默认值室外）
+        //orderType	否	Integer	排序方式（1-升序，2-降序，默认值升序）
         TreeMap<String, String> params = new TreeMap<String, String>();
-        params.put("num", "10");
+        params.put("startDate", "2017-07-20");
+        params.put("rankMode", "1");
+        params.put("spaceType", "1");
+        params.put("orderType", "1");
         HetHttpApi.getInstance().hetGet(url, params,new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
