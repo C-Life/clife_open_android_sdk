@@ -94,7 +94,7 @@ public class UpgradeActivity extends BaseActivity implements View.OnClickListene
     private void updateFinish() {
         String deviceId=deviceModel.getDeviceId();
         String versionId=deviceVersionUpgradeModel.getDeviceVersionId();
-        HetDeviceRomUpgradeApi.confirmSucUpgrade(new IHetCallback() {
+        HetDeviceRomUpgradeApi.getInstance().confirmSucUpgrade(new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
 
@@ -115,7 +115,7 @@ public class UpgradeActivity extends BaseActivity implements View.OnClickListene
     private void getProgess() {
         String deviceId=deviceModel.getDeviceId();
         String versionId=deviceVersionUpgradeModel.getDeviceVersionId();
-        HetDeviceRomUpgradeApi.getUpgradeProgress(new IHetCallback() {
+        HetDeviceRomUpgradeApi.getInstance().getUpgradeProgress(new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
 
@@ -140,7 +140,7 @@ public class UpgradeActivity extends BaseActivity implements View.OnClickListene
         }
         String deviceId=deviceModel.getDeviceId();
 
-        HetDeviceRomUpgradeApi.check(new IHetCallback() {
+        HetDeviceRomUpgradeApi.getInstance().check(new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
                 deviceVersionUpgradeModel= GsonUtil.getGsonInstance().fromJson(msg,DeviceVersionUpgradeModel.class);
@@ -181,7 +181,7 @@ public class UpgradeActivity extends BaseActivity implements View.OnClickListene
         String versionId=deviceVersionUpgradeModel.getDeviceVersionId();
         //设备版本类型（1-PCB，2-WiFi）
         int type=1;
-        HetDeviceRomUpgradeApi.confirm(new IHetCallback() {
+        HetDeviceRomUpgradeApi.getInstance().confirm(new IHetCallback() {
             @Override
             public void onSuccess(int code, String msg) {
                 showToast("同意版本更新");

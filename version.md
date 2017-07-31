@@ -1,0 +1,18 @@
+## version
+
+android的sdk版本说明
+##当前版本
+
+    compile 'com.github.szhittech:HetOpenSdk:1.0.5-SNAPSHOT'
+
+## 版本历史
+【2017-07-31】
+
+     compile 'com.github.szhittech:HetOpenSdk:1.0.5-SNAPSHOT'
+    
+ 1. 支持授权登录页面标题修改
+ 2. 支持配置数据下发
+
+
+
+   
