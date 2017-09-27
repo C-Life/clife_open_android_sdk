@@ -34,7 +34,7 @@ public class AppApplication extends Application {
        // ConfigMode
         ConfigModel configModel=new ConfigModel();
         configModel.setOpenWifiContorl(true);//是否开启wifi控制
-        configModel.setOpenBleControl(false);//是否开启蓝牙控制
+        configModel.setOpenBleControl(true);//是否开启蓝牙控制
         configModel.setLog(true); //是否开启log信息
         configModel.setOpenPost(false);//是否为开放平台设备
         configModel.setHost(GlobalAddr.TYPE_PRODUCE_HOST); //环境设置

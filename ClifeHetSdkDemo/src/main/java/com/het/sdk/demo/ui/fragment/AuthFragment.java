@@ -54,7 +54,7 @@ public class AuthFragment extends BaseFragment implements View.OnClickListener {
 
 
     private void auth(){
-        HetAuthApi.getInstance().authorize(new AuthCallback() {
+        HetAuthApi.getInstance().authorize("远大",new AuthCallback() {
             @Override
             public void onSuccess(int code, String msg) {
                 showToast(msg);

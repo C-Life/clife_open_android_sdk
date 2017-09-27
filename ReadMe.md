@@ -23,7 +23,7 @@
 
     dependencies {
         //和而泰sdk库
-         compile 'com.github.szhittech:HetOpenSdk:1.0.5-SNAPSHOT'
+         compile 'com.github.szhittech:HetOpenSdk:1.0.7-SNAPSHOT'
     }
 	
   

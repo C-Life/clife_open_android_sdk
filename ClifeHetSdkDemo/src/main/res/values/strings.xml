@@ -206,6 +206,7 @@
     <string name="et_share_del_tip">请输入要取消分享用户的手机号</string>
     <string name="share_device_qr_agree_intro">扫描clife授权好友分享的设备</string>
     <string name="btn_scan">扫一扫</string>
+    <string name="btn_test">测试</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
     <string name="data_histroy_run">获取设备运行数据列表（七天之内）</string>
     <string name="data_histroy_config">获取设备控制数据列表（七天之内）</string>

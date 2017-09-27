@@ -37,8 +37,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     //和而泰sdk库
 
-
-    compile 'com.github.szhittech:HetOpenSdk:1.0.6-SNAPSHOT'
+    compile 'com.github.szhittech:HetOpenSdk:1.0.7-SNAPSHOT'
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:22.2.0'
     compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
